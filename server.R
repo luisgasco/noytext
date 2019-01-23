@@ -13,9 +13,8 @@
 #ESTA ES LA QUE SE UTILIZA EN EL SERVER 
 # con <<- mongo(db = "database_a_utilizar", collection = "twitter_collections_no_responses", url = "mongodb://localhost:27017")
 #LA DE PRUEBAS
-con <<- mongo(db = "database_a_utilizar", collection = "twitter_trial_copy", url = "mongodb://localhost:27017")
-
- #con <<- mongo(db = "clean_data_twitter_priorCalc", collection = "twitter_collection", url = "mongodb://localhost:27017")
+con <<- mongo(db = mongo_conf[3], collection = mongo_conf[4], url = paste0("mongodb://",mongo_conf[1],":",mongo_conf[2]))
+  
 server <- function(input, output,session) {
   # output$testtext <- renderText(paste("     fingerprint: ", input$fingerprint, "     ip: ", input$ipid))
   #Hasta que no se toca botón empezar, no se carga
@@ -103,13 +102,11 @@ server <- function(input, output,session) {
   })
   
   # start introjs when button is pressed with custom options and events
-  observeEvent( input$tabs,
-                if(input$tabs=="ejecutar_help"){
-               introjs(session, options = list("nextLabel"="Next",
-                                               "prevLabel"="Previous",
-                                               "skipLabel"="Skip"))
-                }
-  )
+  observeEvent( input$tabs,if(input$tabs=="ejecutar_help"){
+                                 introjs(session, options = list("nextLabel"="Next",
+                                                                 "prevLabel"="Previous",
+                                                                 "skipLabel"="Skip"))
+                                  })
   
   observeEvent(input$go_label,{
     ## Switch active tab to 'Page 1'

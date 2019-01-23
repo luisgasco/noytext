@@ -1,0 +1,4 @@
+ConnectionURL:localhost
+ConnectionPORT:27017
+DatabaseNAME:database_a_utilizar
+CollectionNAME:twitter_trial_copy

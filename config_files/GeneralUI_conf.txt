@@ -1,4 +1,6 @@
 Title:project_title
-Information:title_information_tab:FALSE:intro.html
+Information:title_information_tab:TRUE:intro.html
 Help:title_help_tab:TRUE
+Label:title_label_tab
 About:title_about_tab:TRUE:index.html
+Shinydasboard_appearance:sandstone
