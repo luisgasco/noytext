@@ -4,7 +4,7 @@
 #
 # http://shiny.rstudio.com
 #
-inputIp <- function(inputId, value=''){
+inputIp <<- function(inputId, value=''){
   tagList(
     singleton(tags$head(tags$script(src = "js/md5.js", type='text/javascript'))),
     singleton(tags$head(tags$script(src = "js/shinyBindings.js", type='text/javascript'))),
@@ -12,7 +12,7 @@ inputIp <- function(inputId, value=''){
     tags$input(id = inputId, class = "ipaddr", value=as.character(value), type="text", style="display:none;")
   )
 }
-inputUserid <- function(inputId, value='') {
+inputUserid <<- function(inputId, value='') {
   #   print(paste(inputId, "=", value))
   tagList(
     singleton(tags$head(tags$script(src = "js/md5.js", type='text/javascript'))),
@@ -32,9 +32,9 @@ tagList(
   navbarPage(
     id="tabs",
     theme = shinytheme("sandstone"),  # <--- To use a theme, uncomment this
-    title=("Labtweet - I2A2 Research Group"),
-    tabPanel("Information", includeHTML("intro.html")),
-    tabPanel("Help",
+    title=gen_conf$text_title,
+    tabPanel(gen_conf[2,]$text_title, includeHTML(gen_conf[2,]$file)),
+    tabPanel(gen_conf[3,]$text_title,
              value = "ejecutar_help",
              introjsUI(),
              # Add introJS to the page
@@ -141,7 +141,7 @@ tagList(
     ),
     
     
-    tabPanel("About",
-             includeHTML("index.html"))
+    tabPanel(gen_conf[4,]$text_title,
+             includeHTML(gen_conf[4,]$file))
   )
 )

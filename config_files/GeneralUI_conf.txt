@@ -1,0 +1,4 @@
+Title:project_title
+Information:title_information_tab:FALSE:intro.html
+Help:title_help_tab:TRUE
+About:title_about_tab:TRUE:index.html
