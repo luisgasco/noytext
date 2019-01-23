@@ -119,5 +119,63 @@ server <- function(input, output,session) {
                       selected = "ejecutar_help")
   })
   
-
+  # Modal window for the survey:
+  dataModal <- function(failed = FALSE) {
+    modalDialog(
+      textInput("user_name", "Define your user name",
+                placeholder = 'Try "mtcars" or "abc"'
+      ),
+      span('You should use this user if you want to collaborate in the future'),
+      if (failed)
+        div(tags$b("Invalid name of data object", style = "color: red;")),
+      
+      footer = tagList(
+        modalButton("Cancel"),
+        actionButton("login_signin", "Sign/Login")
+      )
+    )
+  }
+  dataModal2 <- function(failed = FALSE) {
+    modalDialog(
+      build_survey(survey_questions),
+      footer = tagList(
+        modalButton("Cancel")
+      )
+    )
+  }
+  
+  
+  
+  observeEvent(input$tabs, if((input$tabs == "ejecutar_label")&(survey_needed==TRUE)){
+    showModal(dataModal())
+  })
+  observeEvent(input$login_signin,{
+    #CHECK IF THE USER IS ON THE DATABASE
+    # IF IT ISNT ON THE DABASE WE SHOW HIM THE SURVEY
+    showModal(dataModal2())
+    # IF IT IS ON ThE DATABASE WE CLOSE THE MODAL
+    # removeModal(dataModal())
+  })
+  
+  
+  
+  observeEvent(input$submit, {
+    # WE NEED TO CREATE A FUNCTION TO SAVE THE SURVEY RESULT TO MONGODB (to the account of the user) saveData(formData())
+    shinyjs::reset("form")
+    removeModal()
+  })
+  
+  #SURVEY MANDATORY FIELDS----------
+  # observe({
+  #   mandatoryFilled <-
+  #     vapply(survey_mandatory,
+  #            function(x) {
+  #              !is.null(input[[x]]) && input[[x]] != ""
+  #            },
+  #            logical(1))
+  #   mandatoryFilled <- all(mandatoryFilled)
+  #   
+  #   shinyjs::toggleState(id = "submit", condition = mandatoryFilled)
+  # }) 
+  # 
 }

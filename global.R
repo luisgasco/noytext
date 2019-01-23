@@ -30,6 +30,50 @@ mongo_conf_text_path <- paste0(current_path,"/config_files/MongoDB_conf.txt")
 mongo_conf<-read.table(mongo_conf_text_path, header = FALSE, sep = ":",col.names = c("parameter","value"),stringsAsFactors = FALSE)[,2]
 
 
+# SURVEY CONF------------------
+survey_conf_text_path <- paste0(current_path,"/config_files/Survey_conf.txt")
+survey_needed <- as.logical(read.table(survey_conf_text_path,header=FALSE,sep=":", nrows=1)[,2])
+survey_num_questions <- as.numeric(read.table(survey_conf_text_path,header=FALSE,sep=":",skip = 1, nrows=1,stringsAsFactors = FALSE)[,2])
+
+survey_questions <- read.table(survey_conf_text_path,header=FALSE,sep=":",skip = 2,
+                               nrows=survey_num_questions,stringsAsFactors = FALSE,
+                               col.names = c("q_number","q_type","q_id","q_text","q_aditional"))
+
+survey_questions$q_aditional <- strsplit(survey_questions$q_aditional,";")
+
+survey_mandatory <-strsplit(read.table(survey_conf_text_path,header=FALSE,sep=":",
+                                       skip=2+survey_num_questions,nrows=1,
+                                       stringsAsFactors = FALSE)[,2],
+                            ";")[[1]]
+# BUILD SURVEY ----------------------------
+create_question <- function(question){
+  if(question$q_type=="textInput"){
+    out <- textInput(question$q_id, question$q_text, question$q_aditional)
+  }else if(question$q_type=="checkboxInpupt"){
+    out<-checkboxInput(question$q_id, question$q_text, FALSE)
+  }else if(question$q_type=="sliderInput"){
+    out<-sliderInput(question$q_id, question$q_text, as.numeric(question$q_aditional[[1]][1]),
+                      as.numeric(question$q_aditional[[1]][2]), as.numeric(question$q_aditional[[1]][3]), ticks = FALSE)
+  }else if(question$q_type=="selectInput"){
+    out<-selectInput(question$q_id, question$q_text,
+                     question$q_aditional[[1]])
+  }# WE HAVE TO ADD MORE OPTIONS
+}
+build_survey <- function(survey_questions){
+  q_list <- list()
+  for(i in 1:nrow(survey_questions)){
+    q_list[[i]] <- create_question(survey_questions[i,])
+  }
+  
+  
+  survey<-div(shinyjs::useShinyjs(),
+              id = "form",
+              q_list,
+              actionButton("submit", "Submit", class = "btn-primary")
+            )
+  return(survey)
+  }
+
 
 
 # Function to create HELP tab html content: ---------------
@@ -183,6 +227,8 @@ gen_navbar_elem <- function(gen_conf){
 
   return(output_w_style)
 }
+
+
 
 
 
