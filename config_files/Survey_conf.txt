@@ -1,7 +1,6 @@
-SurveyNeeded:TRUE
-NumberQuestions:4
+SurveyNeeded:FALSE
+NumberQuestions:3
 Q1:textInput:surv_text:Text to try:Help text
-Q2:checkboxInput:surv_cb:Text to try:Yes;No
 Q3:sliderInput:surv_studies:Text to try:0;25;4
 Q4:selectInput:surv_sector:Text to try:Windows;Mac;Linux
 MANDATORY:surv_studies;surv_sector

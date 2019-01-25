@@ -14,7 +14,7 @@ body {
   width: 100%;
   padding: .5em 1em;
   line-height: 1.4em;
-  padding-top: 0px;
+  padding-top: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
   padding-left: 20px ;
@@ -31,10 +31,11 @@ body {
     opacity: 1; }
 
 .bubble-container {
-  width: 75%;
+  width: 100%;
   display: block;
   position: relative;
-  padding-left: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
   vertical-align: top;
   display: inline-block; }
 
@@ -60,9 +61,10 @@ body {
   border-right: 20px solid #ecf0f1; }
 
 .timeline {
-  width: 35%;
+  width: 25%;
   display: block;
   margin: auto;
+  list-style: none;
   background-color: #3e3f3a;
   padding-bottom: empty;
   -webkit-box-shadow: #bdc3c7 0 5px 5px;
@@ -331,11 +333,12 @@ body {
   /* For mobile phones: */
   .timeline {
     width:90%;
-    padding 20px;
+    /*padding 20px;*/
   }
   .bubble-container{
-    width:90%;
-    padding-left: 0px;
+    width:100%;
+    padding-left: 5%;
+    padding-right: 5%;
   }
   .timeline2 {
     width:90%;

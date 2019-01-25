@@ -79,38 +79,22 @@ build_survey <- function(survey_questions){
 # Function to create HELP tab html content: ---------------
 help_content <- function(help){
   tagList(
+    useShinyjs(),
     introjsUI(),
     # Add introJS to the page
-    introBox(
-      fluidRow(align="center",
-               radioButtons("idioma_ayuda", label = h3("Language:"),
-                            choices = list("Spanish" = "es", "English" = "en"),
-                            inline = TRUE,
-                            selected = character(0))),
-      data.step = 1,
-      data.intro = help[1]
-    ),
     introBox(
       fluidRow(align="center",
                tagList(
                  tags$ul(class="timeline",
                          tags$li(
-                           div(class="avatar",
-                               img(src=gsub("normal", "500x500", "https://cdn1.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-256.png")),
-                               div(class="hover",
-                                   div(class="icon-twitter"))
-                           ),
                            div(class="bubble-container",
                                div(class="bubble",
-                                   h3(paste0('@',"example_user")),
-                                   br(),
                                    "Here is where you will see the text content you have to label"
-                                   
                                ),
                                div(class="over-bubble")))))
       ),
-      data.step = 2,
-      data.intro = help[2]
+      data.step = 1,
+      data.intro = help[1]
     ),
     introBox(
       fluidRow(align="center",
@@ -122,21 +106,21 @@ help_content <- function(help){
                                                                       "Others" = "ruido_noacustica"), 
                                                        selected = character(0))
                         ))),
-      data.step = 3,
-      data.intro = help[3]
+      data.step = 2,
+      data.intro = help[2]
     ),
     introBox(
       shinyjs::disabled(fluidRow(align="center",
                                  tags$div(class="guardar_ayuda",actionButton("guardar_ayuda", label = "-- Save --")))),
-      data.step = 4,
-      data.intro = help[4]
+      data.step = 3,
+      data.intro = help[3]
     ),
     tags$div(),
     introBox(
       shinyjs::disabled(fluidRow(align="center",
                                  tags$div(class="siguiente_ayuda",actionButton("siguiente_ayuda", label = "-- Next --")))),
-      data.step = 5,
-      data.intro = help[5]
+      data.step = 4,
+      data.intro = help[4]
     )
   )
 }
@@ -144,7 +128,7 @@ help_content <- function(help){
 # Function to create LABEL tab html content: -----------------
 label_content <- function(){
   tagList(
-    useShinyjs(),
+    # useShinyjs(),
     tags$head(includeScript("google-analytics.js"),
               tags$link(rel = "stylesheet", type = "text/css", href = "http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css"),
               tags$link(rel = "stylesheet", type = "text/css", href = "http://fonts.googleapis.com/css?family=Quicksand:300,400"),
@@ -159,13 +143,7 @@ label_content <- function(){
                                    });
                                    ")
     ),
-    fluidRow(align="center",column(width=12,
-                                   radioButtons("idioma", label = h3("Language"),
-                                                choices = list("Spanish" = "es", "English" = "en"),
-                                                inline = TRUE,
-                                                selected = character(0)))),
-    # actionButton("show", "Show modal dialog")),
-    shinyjs::hidden(
+    # shinyjs::show(
       div(id="columna",
           fluidRow(column(width=12,
                           uiOutput("texto")
@@ -173,12 +151,12 @@ label_content <- function(){
           
           fluidRow(
             column(width=12,align="center",
-                   shinyjs::disabled(uiOutput('uiRadioButtons')),
+                   (uiOutput('uiRadioButtons')),
                    shinyjs::disabled(actionButton("guardar", label = "-- Save --")),
                    shinyjs::disabled(actionButton("siguiente", label = "-- Next --"))
             )
             
-          ))),
+          )),
     fluidRow(column(width=12,align="center",
                     uiOutput('texto_value_radio')
     ))
@@ -209,6 +187,7 @@ gen_navbar_elem <- function(gen_conf){
                      help_content(help)),
             tabPanel(gen_conf[4,]$text_title,
                      value = "ejecutar_label",
+                     # id = "ejecutar_label",
                      class="labeltab",
                      label_content()
             ),
@@ -227,8 +206,6 @@ gen_navbar_elem <- function(gen_conf){
 
   return(output_w_style)
 }
-
-
 
 
 

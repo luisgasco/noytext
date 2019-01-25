@@ -1,6 +1,5 @@
-HELP1:<h3>First, you have to select the language of tweets you want to label. Once you selected the language, you should wait a moment in order the server retrieves the info from database</h3>
-HELP2:<h3>Here you can see the content of the tweet to be labeled</h3>
-HELP3:Read the tweet _TRIAL
-HELP4:<h3>When you select an option, you have to click here before going to the next tweet</h3>
-HELP5:<h3>Click next to load the next tweet</h3>
-HELP6:<h3>Start collaborating clicking here! Thank you!</h3>
+HELP1:<h3>Here you can see the content of the tweet to be labeled</h3>
+HELP2:Read the tweet _TRIAL
+HELP3:<h3>When you select an option, you have to click here before going to the next tweet</h3>
+HELP4:<h3>Click next to load the next tweet</h3>
+HELP5:<h3>Start collaborating clicking here! Thank you!</h3>
