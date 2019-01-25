@@ -7,11 +7,5 @@
 
 
 ui<-tagList(
-  # Campos invisibles que contienen el checksum (fingerprint) de la ip y del navegador del usuario
-  # generados utilizandos las funciones de www/js/ se suponen que son únicos por cada usuario
-  inputIp("ipid"),
-  inputUserid("fingerprint"),
-  # Produce UI
-  # useShinyjs(),
   gen_navbar_elem(gen_conf)
 )

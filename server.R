@@ -5,24 +5,7 @@
 # http://shiny.rstudio.com
 #
 
-
-# install help package install_install_github("FrissAnalytics/shinyJsTutorials/tutorials/materials4/FrissIntroJSBasic")
-# con <<- mongo(db = "INAD_db_clean_tagged", collection = "INAD_collection", url = "mongodb://localhost:27017")
-
- # con <<- mongo(db = "clean_data_twitter_database", collection = "twitter_collection", url = "mongodb://localhost:27017")
-#ESTA ES LA QUE SE UTILIZA EN EL SERVER 
-
-
-# con <<- mongo(db = "database_a_utilizar", collection = "twitter_collections_no_responses", url = "mongodb://localhost:27017")
-#LA DE PRUEBAS
-con <<- mongo(db = mongo_conf[3], collection = mongo_conf[4], url = paste0("mongodb://",mongo_conf[1],":",mongo_conf[2]))
-con_user <<- mongo(db = mongo_conf[3], collection = mongo_conf[5], url = paste0("mongodb://",mongo_conf[1],":",mongo_conf[2]))
-num_annotations <<- as.numeric(mongo_conf[6])
-
 server <- function(input, output,session) {
-  # output$testtext <- renderText(paste("     fingerprint: ", input$fingerprint, "     ip: ", input$ipid))
-  #Hasta que no se toca botón empezar, no se carga
-  
   # Function to create the graphical interface for annotating, as well as the saving in database -------------
   show_annotating_UI <- function(){
         shinyjs::show("columna")
@@ -118,12 +101,6 @@ server <- function(input, output,session) {
     value <- input$radio
     ip_val <- toString(input$ipid)
     if(!is.null(value)){
-      
-      #Actualizamos la entrada de la vase de datos
-      # con$update(query = paste0('{"_id": { "$oid" : "', texto_ann$"_id", '" } }'),
-      #            update =  paste0('{"$push": {"text_annotation": {"label":"', value,'","user_id":"',input$user_name,'"}}}'))
-      #Incluimos el id del tweet en el listado del usuario
-      
       # Buscamos el tweet anotado en la base de datos. Si hay un elemento de ese tweet modificado por el usuario, lo actualizamos
       update_or_create <- con$find(query = paste0('{"_id": { "$oid" : "', texto_ann$"_id", '" },"text_annotation.user_id":"',input$user_name,'" }'))
       #If nrow(update_or_create) es distinto de 0, el campo existe por lo que hay que hacer update

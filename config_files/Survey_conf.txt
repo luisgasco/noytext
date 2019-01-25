@@ -1,4 +1,4 @@
-SurveyNeeded:FALSE
+SurveyNeeded:TRUE
 NumberQuestions:3
 Q1:textInput:surv_text:Text to try:Help text
 Q3:sliderInput:surv_studies:Text to try:0;25;4
