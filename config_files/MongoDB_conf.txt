@@ -1,4 +1,6 @@
 ConnectionURL:localhost
 ConnectionPORT:27017
-DatabaseNAME:database_a_utilizar
-CollectionNAME:twitter_trial_copy
+DatabaseNAME:db_name
+CollectionTextNAME:text_collection
+CollectionUsersNAME:user_collection
+num_annotations_text:1

@@ -1,0 +1,7 @@
+/* HIDE-SHOW TAB CLASSES*/
+a.tab-content.hide{
+    display: none;
+}
+a.tab-content.active{
+    display: block;
+}
