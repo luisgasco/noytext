@@ -66,7 +66,7 @@ Some of the state-of-the-art algorithms, such as deep neural networks, are super
 
 ## Cite
 To cite Noytext please use the next reference:
- - [**L. Gasco, C. Clavel, C. Asensio and G. de Arcas “Beyond sound level monitoring: Exploitation of social media to gather citizens subjective response to noise”,  Science of the Total Environment. 658, p  69-79. March 2019. **](https://doi.org/10.1016/j.scitotenv.2018.12.071)
+ - [**L. Gasco**, C. Clavel, C. Asensio and G. de Arcas “Beyond sound level monitoring: Exploitation of social media to gather citizens subjective response to noise”,  Science of the Total Environment. 658, p  69-79. March 2019. ](https://doi.org/10.1016/j.scitotenv.2018.12.071)
  
 ## License
 
