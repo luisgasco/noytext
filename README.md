@@ -75,5 +75,5 @@ AGPL-3.0
 > [luisgasco.es](http://luisgasco.es/) &nbsp;&middot;&nbsp;
 > GitHub [@luisgasco](https://github.com/luisgasco) &nbsp;&middot;&nbsp;
 > Twitter [@luisgasco](https://twitter.com/luisgasco)
-> Facebook [Luis Gascó Sánchez page] (https://www.facebook.com/Luis-Gasco-Sanchez-165003227504667)
+> Facebook [Luis Gascó Sánchez page](https://www.facebook.com/Luis-Gasco-Sanchez-165003227504667)
 
