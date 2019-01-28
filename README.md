@@ -34,15 +34,15 @@
   - Introduce your team with you own html file
   - Configure your own help page
   - Personlize your navigation bar as you wish
-  - Choose the overall appearance of the web-app using .[shinythemes].(https://rstudio.github.io/shinythemes/)
+  - Choose the overall appearance of the web-app using [shinythemes](https://rstudio.github.io/shinythemes/)
 * Connect the web-app to your own Mongo database
 * Interannotator agreement - Define the No. of times a text should be annotated by different users
 * Get info. about your annotators:
   - Define a small questionaire to ask your annotators.
-  - It works with the majority of .[Shiny control input widgets].(https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/)
+  - It works with the majority of [Shiny control input widgets](https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/)
 * Emoji support in text visualization 👌
 * Cross platform
-  - Windows, macOS and Linux. You only need a valid .[R-Studio].(https://www.rstudio.com/) or .[Shiny Server].(https://www.rstudio.com/products/shiny/shiny-server/) installation.
+  - Windows, macOS and Linux. You only need a valid [R-Studio](https://www.rstudio.com/) or [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/) installation.
 
 
 More examples of readmes:
