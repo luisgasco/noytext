@@ -22,6 +22,7 @@
   <a href="#how-to-use">How To Use</a> •
   <a href="#download">Download</a> •
   <a href="#credits">Credits</a> •
+  <a href="#credits">Cite</a> •
   <a href="#license">License</a>
 </p>
 
@@ -63,6 +64,10 @@ Some of the state-of-the-art algorithms, such as deep neural networks, are super
 
 - [Ropensky](https://github.com/luisgasco/Ropensky) - R library to get data from OpenSky Network API.
 
+## Cite
+To cite Noytext please use the next reference:
+ - [**L. Gasco, C. Clavel, C. Asensio and G. de Arcas “Beyond sound level monitoring: Exploitation of social media to gather citizens subjective response to noise”,  Science of the Total Environment. 658, p  69-79. March 2019. **](https://doi.org/10.1016/j.scitotenv.2018.12.071)
+ 
 ## License
 
 AGPL-3.0
