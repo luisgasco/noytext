@@ -22,7 +22,6 @@
   <a href="#how-to-use">How To Use</a> •
   <a href="#download">Download</a> •
   <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
   <a href="#license">License</a>
 </p>
 
@@ -30,23 +29,21 @@
 
 ## Key Features
 
-* LivePreview - Make changes, See changes
-  - Instantly see what your Markdown documents look like in HTML as you create them.
-* Sync Scrolling
-  - While you type, LivePreview will automatically scroll to the current location you're editing.
-* GitHub Flavored Markdown  
-* Syntax highlighting
-* [KaTeX](https://khan.github.io/KaTeX/) Support
-* Dark/Light mode
-* Toolbar for basic Markdown formatting
-* Supports multiple cursors
-* Save the Markdown preview as PDF
-* Emoji support in preview :tada:
-* App will keep alive in tray for quick usage
-* Full screen mode
-  - Write distraction free.
+* Fully customizable UI - Adapt Noytext to your needs
+  - Show your own project description html page
+  - Introduce your team with you own html file
+  - Configure your own help page
+  - Personlize your navigation bar as you wish
+  - Choose the overall appearance of the web-app using .[shinythemes].(https://rstudio.github.io/shinythemes/)
+* Connect the web-app to your own Mongo database
+* Interannotator agreement - Define the No. of times a text should be annotated by different users
+* Get info. about your annotators:
+  - Define a small questionaire to ask your annotators.
+  - It works with the majority of .[Shiny control input widgets].(https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/)
+* Emoji support in text visualization 👌
 * Cross platform
-  - Windows, macOS and Linux ready.
+  - Windows, macOS and Linux. You only need a valid .[R-Studio].(https://www.rstudio.com/) or .[Shiny Server].(https://www.rstudio.com/products/shiny/shiny-server/) installation.
+
 
 More examples of readmes:
 https://github.com/amitmerchant1990/electron-markdownify
