@@ -20,7 +20,7 @@
   <a href="#how-to-use">How To Use</a> •
   <a href="#download">Download</a> •
   <a href="#credits">Credits</a> •
-  <a href="#credits">Cite</a> •
+  <a href="#cite">Cite</a> •
   <a href="#license">License</a>
 </p>
 
