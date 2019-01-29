@@ -51,7 +51,10 @@ https://github.com/aimeos/aimeos-typo3
 
 ## How To Use
 
-To clone this app, you'll need [Git](https://git-scm.com). To use this app you'll need [R](https://www.r-project.org/) installed on your machine. If you are going to use in a local environment, I recommend you to use [RStudio]https://www.rstudio.com/. If you want to allow other people to use the app, you should install [Shiny server](https://shiny.rstudio.com/) in your own server
+To clone this app, you'll need [Git](https://git-scm.com).
+To use this app, you'll need [R](https://www.r-project.org/) installed on your machine. 
+If you are going to use it in a local environment, I recommend you to use [RStudio](https://www.rstudio.com/).
+If you want to allow other people to use the app, you should install [Shiny server](https://shiny.rstudio.com/) in your own server
 
 ```bash
 # Clone this repository
