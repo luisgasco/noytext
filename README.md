@@ -53,7 +53,7 @@ https://github.com/aimeos/aimeos-typo3
 
 To clone this app, you'll need [Git](https://git-scm.com).
 
-To use this app, you'll need [R](https://www.r-project.org/) installed on your machine. 
+To use this app, you'll need both [R](https://www.r-project.org/) and [MongoDB](https://www.mongodb.com/) installed on your machine. 
 
 If you are going to use it in a local environment, I recommend you to use [RStudio](https://www.rstudio.com/).
 
