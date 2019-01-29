@@ -1,11 +1,12 @@
 <h1 align="center">
   <br>
-  <a href=""><img src=""https://raw.githubusercontent.com/luisgasco/noytext/master/www/img/Noytext_logo.jpg" alt="Noytext" width="200"></a>
+  <a href=""><img src="https://raw.githubusercontent.com/luisgasco/noytext/www/img/Noytext_logo.jpg" alt="Noytext" width="200"></a>
   <br>
   Noytext
   <br>
 </h1>
 
+       
 <h4 align="center">A web-based platform for annotaing social media documents to be used in text mining based acoustic noise perception research.</h4>
 
 <p align="center">
