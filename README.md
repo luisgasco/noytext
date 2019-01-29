@@ -21,6 +21,7 @@
   <a href="#download">Download</a> •
   <a href="#credits">Credits</a> •
   <a href="#cite">Cite</a> •
+  <a href="#about">About</a> •
   <a href="#license">License</a>
 </p>
 
@@ -65,7 +66,10 @@ Some of the state-of-the-art algorithms, such as deep neural networks, are super
 ## Cite
 To cite Noytext please use the next reference:
  - [**L. Gasco**, C. Clavel, C. Asensio and G. de Arcas “Beyond sound level monitoring: Exploitation of social media to gather citizens subjective response to noise”,  Science of the Total Environment. 658, p  69-79. March 2019. ](https://doi.org/10.1016/j.scitotenv.2018.12.071)
- 
+
+## Cite
+I developed this tool while I was PhD student at Instrumentation and Applied Acoustics Research Group (I2A2 Group) from Universidad POlitécnica de Madrid. Part of this code was developed while I was doing a research stay at Greta Team (Télécom Paristech)
+
 ## License
 
 AGPL-3.0
