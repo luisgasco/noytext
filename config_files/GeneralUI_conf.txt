@@ -1,6 +1,30 @@
+# PLEASE READ CAREFULLY THIS INSTRUCTIONS BEFORE MODIFYING ANY CONFIGURATION LINE.
+# DO NOT CHANGE THE ORDER OF LINES, SINCE IT COULD PROVOKE A FAILURE IN THE APP.
+#
+# This is the configuration file to modify elements of the graphical interface. 
+# Noytext currently has 5 pages. You can hide all of them, except the one used to annotate texts.
+# The first element of each line (the separator is the symbol ":") represents the element you are going to modify
+# Please do NOT use quotation marks when writing the name of your tabs/files/TRUE-FALSE constants.
+
+# Specifify the name of your webapp/project. 
 Title:project_title
+
+# Set the name of your introduction tab in the app. The order of elements is:
+# Information:"title of the tab in your app": "TRUE/FALSE -> To show or not to show this tab" : "html file of this page"
 Information:title_information_tab:TRUE:intro.html
+
+# Do you want to show a tab to teach people how the app works? 
+# Help:"title of this tab in your app": "TRUE/FALSE -> To show or not to show this tab" 
 Help:title_help_tab:TRUE
+
+# Change the title name of the label tab in the app.
+# Label:"name of the label tab"
 Label:title_label_tab
+
+# Do you want to show a tab with information about the team, or whatever? If you want to hide it set the label as FALSE.
+# If you want to show it select the html file present on the root of the app
+# About:"title of the label tab":"TRUE/FALSE-> To show or not to show this tab":"html file of this page"
 About:title_about_tab:TRUE:index.html
+
+# You can use shinythemes values to change the color of the NavBar. Those values can be found on https://rstudio.github.io/shinythemes/
 Shinydasboard_appearance:sandstone

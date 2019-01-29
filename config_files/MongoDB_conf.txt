@@ -1,6 +1,28 @@
+# PLEASE READ CAREFULLY THIS INSTRUCTIONS BEFORE MODIFYING ANY CONFIGURATION LINE.
+# DO NOT CHANGE THE ORDER OF LINES, SINCE IT COULD PROVOKE A FAILURE IN THE APP.
+#
+# This is the configuration file to configure your MongoDB connection
+# 
+# Here you can define your connectionURL, port, database name, and collections names.
+# If you want to register users data, besides the text's collection you will need to create a user_collection to register their info.
+#
+# The first element of each line (the separator is the symbol ":") represents the element you are going to modify
+# Please do NOT use quotation marks when writing the name of your tabs/files/TRUE-FALSE constants.
+
+# Connection URL definition
 ConnectionURL:localhost
+
+# Connection port definition
 ConnectionPORT:27017
+
+# Your database name
 DatabaseNAME:db_name
+
+# Your texts collection name
 CollectionTextNAME:text_collection
+
+# Your user collection name
 CollectionUsersNAME:user_collection
+
+# Number of times a text need to be annotated (for inter-annotator agreement tasks, for example)
 num_annotations_text:1

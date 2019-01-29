@@ -34,6 +34,17 @@ Source: CRAN
 Version: 0.1-3
 Hash: c590d29e555926af053055e23ee79efb
 
+Package: bindr
+Source: CRAN
+Version: 0.1.1
+Hash: 76578c5f543a6ecbc1365d6445f9ebf7
+
+Package: bindrcpp
+Source: CRAN
+Version: 0.2.2
+Hash: 8ce499301f0dc5c7ff69f0b42e33f5c1
+Requires: Rcpp, bindr, plogr
+
 Package: cli
 Source: CRAN
 Version: 1.0.1
@@ -54,12 +65,19 @@ Package: crosstalk
 Source: CRAN
 Version: 1.0.0
 Hash: c13adea5906fbe2becfcb5f843b26749
-Requires: R6, jsonlite, lazyeval, htmltools, ggplot2, shiny
+Requires: R6, ggplot2, htmltools, jsonlite, lazyeval, shiny
 
 Package: digest
 Source: CRAN
 Version: 0.6.18
 Hash: 65f62365ec69ddd17230d2ffe891a6ab
+
+Package: dplyr
+Source: CRAN
+Version: 0.7.4
+Hash: f8cb5f5e3ad555e8ff518941599a2058
+Requires: BH, R6, Rcpp, assertthat, bindrcpp, glue, magrittr,
+    pkgconfig, plogr, rlang, tibble
 
 Package: fansi
 Source: CRAN
@@ -70,8 +88,8 @@ Package: ggplot2
 Source: CRAN
 Version: 3.1.0
 Hash: ef541b05dda10b209d509b5bbaf46ea3
-Requires: digest, gtable, lazyeval, rlang, viridisLite, withr, plyr,
-    scales, reshape2, tibble
+Requires: digest, gtable, lazyeval, plyr, reshape2, rlang, scales,
+    tibble, viridisLite, withr
 
 Package: glue
 Source: CRAN
@@ -99,7 +117,7 @@ Package: htmlwidgets
 Source: CRAN
 Version: 1.3
 Hash: 17a2248b5e40383a1cb1a4e4cb5f9c7a
-Requires: jsonlite, yaml, htmltools
+Requires: htmltools, jsonlite, yaml
 
 Package: httpuv
 Source: CRAN
@@ -132,8 +150,8 @@ Package: leaflet
 Source: CRAN
 Version: 2.0.2
 Hash: da55402e4875c0253df918df0e97d4c4
-Requires: RColorBrewer, base64enc, magrittr, png, sp, htmltools,
-    markdown, raster, scales, htmlwidgets, viridis, crosstalk
+Requires: RColorBrewer, base64enc, crosstalk, htmltools, htmlwidgets,
+    magrittr, markdown, png, raster, scales, sp, viridis
 
 Package: magrittr
 Source: CRAN
@@ -178,12 +196,17 @@ Package: pillar
 Source: CRAN
 Version: 1.3.1
 Hash: 9ed4c2a5d3047bfba3e852ad5e806d91
-Requires: crayon, fansi, rlang, utf8, cli
+Requires: cli, crayon, fansi, rlang, utf8
 
 Package: pkgconfig
 Source: CRAN
 Version: 2.0.2
 Hash: b0fd6ed908e150b77e5f00c6478bd58c
+
+Package: plogr
+Source: CRAN
+Version: 0.2.0
+Hash: 81a8008a5e7858552503935f1abe48aa
 
 Package: plyr
 Source: CRAN
@@ -200,7 +223,13 @@ Package: promises
 Source: CRAN
 Version: 1.0.1
 Hash: ad46b75f161824587957e34b95de7d15
-Requires: R6, Rcpp, magrittr, rlang, later
+Requires: R6, Rcpp, later, magrittr, rlang
+
+Package: purrr
+Source: CRAN
+Version: 0.2.4
+Hash: a80b244ccd3fdb33a0ff2be3c50dd648
+Requires: magrittr, rlang, tibble
 
 Package: raster
 Source: CRAN
@@ -229,14 +258,14 @@ Package: scales
 Source: CRAN
 Version: 1.0.0
 Hash: 7d9b717abcec656ae7c5c982d72b75e5
-Requires: R6, RColorBrewer, Rcpp, labeling, viridisLite, munsell
+Requires: R6, RColorBrewer, Rcpp, labeling, munsell, viridisLite
 
 Package: shiny
 Source: CRAN
 Version: 1.2.0
 Hash: 6853126283ff0572d9f370a1520ac831
-Requires: R6, crayon, digest, jsonlite, mime, rlang, sourcetools,
-    xtable, htmltools, later, promises, httpuv
+Requires: R6, crayon, digest, htmltools, httpuv, jsonlite, later, mime,
+    promises, rlang, sourcetools, xtable
 
 Package: shinyBS
 Source: CRAN
@@ -254,7 +283,7 @@ Package: shinyjs
 Source: CRAN
 Version: 0.7
 Hash: e4833b2ba2d8c8773d7b1200699bb434
-Requires: digest, htmltools, shiny, miniUI
+Requires: digest, htmltools, miniUI, shiny
 
 Package: shinythemes
 Source: CRAN
@@ -287,7 +316,20 @@ Package: tibble
 Source: CRAN
 Version: 2.0.1
 Hash: d2a00b9a314cfad8f6b51e2c97aaff5c
-Requires: crayon, fansi, pkgconfig, rlang, cli, pillar
+Requires: cli, crayon, fansi, pillar, pkgconfig, rlang
+
+Package: tidyr
+Source: CRAN
+Version: 0.8.0
+Hash: 20754c2ff326deeaf7863349f671eb70
+Requires: Rcpp, dplyr, glue, magrittr, purrr, rlang, stringi, tibble,
+    tidyselect
+
+Package: tidyselect
+Source: CRAN
+Version: 0.2.4
+Hash: c667bdf66fdebcaf32e755a747ed7135
+Requires: Rcpp, glue, purrr, rlang
 
 Package: utf8
 Source: CRAN
@@ -298,7 +340,7 @@ Package: viridis
 Source: CRAN
 Version: 0.5.1
 Hash: 39edaec2078b4fc928afb73cc1ce6625
-Requires: viridisLite, gridExtra, ggplot2
+Requires: ggplot2, gridExtra, viridisLite
 
 Package: viridisLite
 Source: CRAN

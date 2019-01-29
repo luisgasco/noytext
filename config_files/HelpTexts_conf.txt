@@ -1,5 +1,16 @@
+# PLEASE READ CAREFULLY THIS INSTRUCTIONS BEFORE MODIFYING ANY CONFIGURATION LINE.
+# DO NOT CHANGE THE ORDER OF LINES, SINCE IT COULD PROVOKE A FAILURE IN THE APP.
+#
+# This is the configuration file to set the helpers from the tab "help".
+# You can use most of the html tags (I did not check all of them)
+#
+# Currently, you only can define the 4 sentences that will be shown in each step of "help tab". 
+# I will think about how to provide more personalization options in the future.
+#
+# The first element of each line (the separator is the symbol ":") represents the element you are going to modify
+# Please do NOT use quotation marks when writing your help files, nor carriage returns
+
 HELP1:<h3>Here you can see the content of the tweet to be labeled</h3>
-HELP2:Read the tweet _TRIAL
+HELP2:Read the tweet 
 HELP3:<h3>When you select an option, you have to click here before going to the next tweet</h3>
 HELP4:<h3>Click next to load the next tweet</h3>
-HELP5:<h3>Start collaborating clicking here! Thank you!</h3>

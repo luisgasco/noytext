@@ -1,6 +1,24 @@
+# PLEASE READ CAREFULLY THIS INSTRUCTIONS BEFORE MODIFYING ANY CONFIGURATION LINE.
+# DO NOT CHANGE THE ORDER OF LINES, SINCE IT COULD PROVOKE A FAILURE IN THE APP.
+#
+# This is the configuration file to configure your MongoDB connection
+# 
+# Here you can define your connectionURL, port, database name, and collections names.
+# If you want to register users data, besides the text's collection you will need to create a user_collection to register their info.
+#
+# The first element of each line (the separator is the symbol ":") represents the element you are going to modify
+# Please do NOT use quotation marks when writing the name of your tabs/files/TRUE-FALSE constants.
+
+# Do you need to get information about your annotators? (If yes, write TRUE. If not, write FALSE)
 SurveyNeeded:TRUE
+
+# How many questions do you want to ask your annotators?
 NumberQuestions:3
+
+# Define the questions
 Q1:textInput:surv_text:Text to try:Help text
 Q3:sliderInput:surv_studies:Text to try:0;25;4
 Q4:selectInput:surv_sector:Text to try:Windows;Mac;Linux
+
+# Which questions are mandatory to answert? This option is not implemented yet.
 MANDATORY:surv_studies;surv_sector
