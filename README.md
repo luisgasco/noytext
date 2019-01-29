@@ -57,7 +57,8 @@ Boost of online social networks has demonstrated that some people are willing to
 
 Some of the state-of-the-art algorithms, such as deep neural networks, are supervised machine learning algorithms. This means that researchers have to provide a set of labelled training data to build new models. The annotation process is known as one of the most time-costly tasks in a data science pipeline, since researchers among other thigs have to test the agreement between annotators and to measure the quality of the categories they had previously defined. For that reason in this paper, we introduce Noytext which is a customizable web tool to annotate texts from your database, that can be deploy in your own webserver and you can use to request help from colleagues and collaborators in the annotation process in a friendly way.
 
-
+## Credits
+Shiny shiny app
 
 ## You may also like...
 
@@ -67,7 +68,7 @@ Some of the state-of-the-art algorithms, such as deep neural networks, are super
 To cite Noytext please use the next reference:
  - [**L. Gasco**, C. Clavel, C. Asensio and G. de Arcas “Beyond sound level monitoring: Exploitation of social media to gather citizens subjective response to noise”,  Science of the Total Environment. 658, p  69-79. March 2019. ](https://doi.org/10.1016/j.scitotenv.2018.12.071)
 
-## Cite
+## About
 I developed this tool while I was PhD student at Instrumentation and Applied Acoustics Research Group (I2A2 Group) from Universidad POlitécnica de Madrid. Part of this code was developed while I was doing a research stay at Greta Team (Télécom Paristech)
 
 ## License
