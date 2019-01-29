@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href=""><img src="https://raw.githubusercontent.com/luisgasco/noytext/www/img/Noytext_logo.jpg" alt="Noytext" width="200"></a>
+  <a href=""><img src="https://github.com/luisgasco/noytext/blob/master/www/img/Noytext_logo.jpg?raw=true" alt="Noytext" width="200"></a>
   <br>
   Noytext
   <br>
