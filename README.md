@@ -58,11 +58,20 @@ Boost of online social networks has demonstrated that some people are willing to
 Some of the state-of-the-art algorithms, such as deep neural networks, are supervised machine learning algorithms. This means that researchers have to provide a set of labelled training data to build new models. The annotation process is known as one of the most time-costly tasks in a data science pipeline, since researchers among other thigs have to test the agreement between annotators and to measure the quality of the categories they had previously defined. For that reason in this paper, we introduce Noytext which is a customizable web tool to annotate texts from your database, that can be deploy in your own webserver and you can use to request help from colleagues and collaborators in the annotation process in a friendly way.
 
 ## Credits
-Shiny shiny app
+This app uses the following open source programs:
 
-## You may also like...
+- [Shiny](https://shiny.rstudio.com/)
+- [R](https://www.r-project.org/)
+- [MongoDB](https://www.mongodb.com/)
+- [Javascript](https://www.javascript.com/)
 
-- [Ropensky](https://github.com/luisgasco/Ropensky) - R library to get data from OpenSky Network API.
+And the following R´- libraries:
+- [rintrojs](https://github.com/carlganz/rintrojs)
+- [shinyBS](https://ebailey78.github.io/shinyBS/)
+- [shinyJS](https://github.com/daattali/shinyjs)
+- [mongolite](https://jeroen.github.io/mongolite/)
+- [tidyr](https://tidyr.tidyverse.org/)
+- [dplyr](https://dplyr.tidyverse.org/)
 
 ## Cite
 To cite Noytext please use the next reference:
@@ -74,6 +83,11 @@ I developed this tool while I was PhD student at Instrumentation and Applied Aco
 ## License
 
 AGPL-3.0
+
+
+## You may also like...
+
+- [Ropensky](https://github.com/luisgasco/Ropensky) - R library to get data from OpenSky Network API.
 
 ---
 
