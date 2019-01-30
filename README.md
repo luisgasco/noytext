@@ -78,6 +78,7 @@ And the following R´- libraries:
 - [rintrojs](https://github.com/carlganz/rintrojs)
 - [shinyBS](https://ebailey78.github.io/shinyBS/)
 - [shinyJS](https://github.com/daattali/shinyjs)
+- [shinyWidgets](https://github.com/dreamRs/shinyWidgets)
 - [mongolite](https://jeroen.github.io/mongolite/)
 - [tidyr](https://tidyr.tidyverse.org/)
 - [dplyr](https://dplyr.tidyverse.org/)
