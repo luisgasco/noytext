@@ -91,9 +91,9 @@ To cite Noytext please use the next reference:
 I developed this tool while I was a PhD student at Instrumentation and [Applied Acoustics Research Group (I2A2 Group)]() of [Universidad Politécnica de Madrid](). Part of this code was developed while I was doing a research stay at [Télecom Paristech]().
 
 
-<div align="center" href="http://i2a2.upm.es/"> <img src="https://github.com/luisgasco/noytext/blob/master/www/logo.png" alt="I2A2"	width="auto" height="150" /> </div>
+<div align="center"><a href="http://www.i2a2.upm.es/"> <img src="https://github.com/luisgasco/noytext/blob/master/www/logo.png" alt="I2A2"	width="auto" height="150" /></a> </div>
 
-<img src="https://github.com/luisgasco/noytext/blob/master/www/logo2.jpg" alt="KitUPMten"	width="auto" height="100" align="middle" /><img src="https://github.com/luisgasco/noytext/blob/master/www/logo_telecom.png" alt="TELECOM"	width="auto" height="100" align="middle" />
+<div align="center" ><img src="https://github.com/luisgasco/noytext/blob/master/www/logo2.jpg" alt="KitUPMten"	width="auto" height="100" align="middle" /><img src="https://github.com/luisgasco/noytext/blob/master/www/logo_telecom.png" alt="TELECOM"	width="auto" height="100" align="middle" /></div>
 
 
 ## License
