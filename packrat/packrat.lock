@@ -273,6 +273,12 @@ Version: 0.61
 Hash: 4644935bd93e62a0b82686b26af7efc2
 Requires: htmltools, shiny
 
+Package: shinyWidgets
+Source: CRAN
+Version: 0.4.2
+Hash: 41aa8c07ede896480db5b0148f9d89c1
+Requires: htmltools, jsonlite, shiny
+
 Package: shinydashboard
 Source: CRAN
 Version: 0.5.3
