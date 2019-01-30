@@ -9,7 +9,8 @@ library(rintrojs)
 library(dplyr)
 library(tidyr)
 library(stringr)
-
+library(shinyWidgets)
+library(jsonlite)
 # Ensure that the www folder is visible by the app
 addResourcePath("www", "www")
 

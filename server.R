@@ -77,17 +77,23 @@ server <- function(input, output,session) {
     string_med <- list()
     #Now we add those values in the query
     for(i in 1:nrow(survey_questions)){
-      string_med[[i]] <- paste0('"',survey_questions$q_number[i],'":"',list_values[[i]],'"')
-      # print(i,list_values[[i]],sep="--")
+      # If the question content is greater than an element (is a list)
+      if ((survey_questions$q_type[i] == "selectInputMultiple" )|
+          (survey_questions$q_type[i] == "checkboxGroupInput")|
+          (survey_questions$q_type[i] == "pickerInput")){
+        string_med[[i]] <- paste0('"',survey_questions$q_number[i],'":',toJSON(list_values[[i]]))
+      }else{
+        string_med[[i]] <- paste0('"',survey_questions$q_number[i],'":"',list_values[[i]],'"')
+      }
+      
     }
     #Concatenate elements of the list
     library(stringi)
     string_med_fin<-paste(stri_join_list(string_med, sep = "", collapse = NULL),sep="",collapse=",")
-    final_update_query<-paste0(string_ini,string_med_fin,'}}}')
+    final_update_query<<-paste0(string_ini,string_med_fin,'}}}')
   }
   
-    # Cuando detecta un cambio en esa expresión, se ejecuta todo
-  #PONER DENTRO DEL MODAL ESTO http://r-posts.com/slickr/
+  # Cuando detecta un cambio en esa expresión, se ejecuta todo
   observeEvent({
     input$siguiente
     input$login_signin

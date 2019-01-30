@@ -13,12 +13,19 @@
 SurveyNeeded:TRUE
 
 # How many questions do you want to ask your annotators?
-NumberQuestions:3
+NumberQuestions:10
 
 # Define the questions
-Q1:textInput:surv_text:Text to try:Help text
-Q3:sliderInput:surv_studies:Text to try:0;25;4
-Q4:selectInput:surv_sector:Text to try:Windows;Mac;Linux
+Q1:textInput:surv_textInput:Example textInput :Help text
+Q2:checkboxInput:surv_checkboxInpupt:Example checkboxInput:FALSE
+Q3:sliderInput:surv_sliderInput:Example sliderInput:0;25;4
+Q4:selectInput:surv_selectInput:Example selectInput:Windows;Mac;Linux
+Q5:selectInputMultiple:surv_selectInputMultiple:Example selectInputMultiple. Use "Del" key to remove options:Windows;Mac;Linux;Windows2;Mac2;Linux2;Windows3;Mac3;Linux3;Windows4;Mac4;Linux4;Windows5;Mac5;Linux5;Windows6;Mac6;Linux6
+Q6:checkboxGroupInput:surv_checkboxGroupInput:Example checkboxGroupInput:Windows;Mac;Linux
+Q7:radioButtons:surv_radioButtons:Example radioButtons:Windows;Mac;Linux
+Q8:numericInput:surv_numericInput:Example numericInput:0;0;100
+Q9:sliderTextInput:surv_sliderTextInput:Example sliderTextInput:Windows;Mac;Linux
+Q10:pickerInput:surv_pickerInput:Example pickerInput:Windows;Mac;Linux;Windows2;Mac2;Linux2;Windows3;Mac3;Linux3;Windows4;Mac4;Linux4;Windows5;Mac5;Linux5;Windows6;Mac6;Linux6
 
 # Which questions are mandatory to answert? This option is not implemented yet.
 MANDATORY:surv_studies;surv_sector
