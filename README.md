@@ -1,33 +1,3 @@
-```html
-<style>
-	/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .collapsible:hover {
-  background-color: #ccc;
-}
-
-/* Style the collapsible content. Note: hidden by default */
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-}
-</style>
-```
-
 <h1 align="center">
   <br>
   <a><img src="https://github.com/luisgasco/noytext/blob/master/www/img/Noytext-02.jpg?raw=true" alt="Noytext" width="800"></a>
@@ -84,8 +54,9 @@ https://github.com/aimeos/aimeos-typo3
 To clone this app, you'll need [Git](https://git-scm.com) • To use this app, you'll need both [R](https://www.r-project.org/) and [MongoDB](https://www.mongodb.com/) installed on your machine • If you are going to use it in a local environment, I recommend you to use [RStudio](https://www.rstudio.com/) • If you want to allow other people to use the app, you should install [Shiny server](https://shiny.rstudio.com/) in your own server
 
 Here you have the steps to run the app in your cloud server (running Ubuntu 16.04)
-<button class="collapsible"> <b>1. Server</b></button>
- <div class="content">
+<details>
+  <summary><b>1. Server</b></summary>
+  
   1. The first thing you should do is add a non-root user.
   ```bash
   sudo adduser yourname
@@ -95,10 +66,10 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   ```bash
   su - yourname
   ```
-</div>
-
-<button class="collapsible"><b>2. Install R</b></button>
-  <div class="content">
+</details>
+<details>
+  <summary><b>2. Install R</b></summary>
+  
   1. Add R senial to our sources.list:
   ```bash
   sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
@@ -125,11 +96,10 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   ```bash
   sudo su - -c "R -e \"install.packages('devtools', repos='http://cran.rstudio.com/')\""
   ```
- </div>>
-
+</details>
+<details>
+  <summary><b>3. Install Shiny Server</b></summary>
   
- <button class="collapsible"><b>3. Install Shiny Server</b></button>
-  <div class="content">
   1. Install some dependencies
   ```bash
   sudo apt-get -y install gdebi-core
@@ -149,16 +119,18 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   sudo gdebi shiny-server-1.5.9.923-amd64.deb
   ```
   5. Check that shiny server is working on port 3838: http://YOUR_IP:3838
-</div>
-<button class="collapsible"><b>4. Install Git</b></button>
-   <div class="content">
+</details>
+<details>
+  <summary><b>4. Install Git</b></summary>
+  
   ```bash
   sudo apt-get update
   sudo apt-get install git
   ```
-  </div>
-<button class="collapsible"><b>5. Install MongoDB</b></button>
-  <div class="content">
+</details>
+<details>
+  <summary><b>5. Install MongoDB</b></summary>
+  
   1. Import publick key used by the management system for MongoDB
   ```bash
   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
@@ -176,9 +148,10 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   ```bash
   sudo service mongod start
   ```
-</div>
-<button class="collapsible"><b>6. Install App</b></button>
- <div class="content"> 
+</details>
+<details>
+  <summary><b>6. Install App</b></summary>
+  
   1. Clone repository from Github
   ```bash
   git clone https://github.com/luisgasco/noytext
@@ -202,7 +175,7 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   # Install libraries on the noytext private library
   packrat::restore()
   ```
-</div>
+</details>
 
 ## Database configuration
 Before using the application, you have to create a MongoDB database with two collections to import your texts there.
@@ -259,4 +232,3 @@ AGPL-3.0
 > GitHub [@luisgasco](https://github.com/luisgasco) &nbsp;&middot;&nbsp;
 > Twitter [@luisgasco](https://twitter.com/luisgasco)
 > Facebook [Luis Gascó Sánchez page](https://www.facebook.com/Luis-Gasco-Sanchez-165003227504667)
-
