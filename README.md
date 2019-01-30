@@ -183,7 +183,7 @@ Before using the application, you have to create a MongoDB database with two col
 Here are the steps to follow to create the database, collections and import your data:
 
 
-```MongoDB
+```js
   db.bios.find(
    { _id: { $in: [ 5, ObjectId("507c35dd8fada716c89d0013") ] } }
 )
