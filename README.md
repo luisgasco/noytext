@@ -38,7 +38,7 @@
 * Interannotator agreement - Define the No. of times a text should be annotated by different users
 * Get info. about your annotators:
   - Define a small questionaire to ask your annotators.
-  - It works with the majority of [Shiny control input widgets](https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/)
+  - It works with the majority of [Shiny control input widgets](https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/) and two additional inputs of [shinyWidgets](https://github.com/dreamRs/shinyWidgets)
 * Emoji support in text visualization 👌
 * Cross platform
   - Windows, macOS and Linux. You only need a valid [R-Studio](https://www.rstudio.com/) or [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/) installation.
