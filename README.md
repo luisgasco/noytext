@@ -63,12 +63,12 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 <details>
   <summary>1. Server</summary>
   
-  a. The first thing you should do is add a non-root user.
+  1. The first thing you should do is add a non-root user.
   ```bash
   sudo adduser yourname
   sudo gpasswd -a yourname sudo
   ```
-  b. Switch to "yourname"
+  2. Switch to "yourname"
   ```bash
   su - yourname
   ```
@@ -76,42 +76,108 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 <details>
   <summary>2. Install R</summary>
   
-  
+  1. Add R senial to our sources.list:
+  ```bash
+  sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
+  ```
+  2. Add the public keys:
+  ```bash
+  gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+  gpg -a --export E084DAB9 | sudo apt-key add -
+  ```
+  3. Install R
+  ```bash
+  sudo apt-get update
+  sudo apt-get -y install r-base
+  ```
+  4. Check that R is working (use the command quit() to exit)
+  ```bash
+  R
+  ```
+  5. Install dependencies to install R-libraries
+  ```bash
+  sudo apt-get -y install libcurl4-gnutls-dev libxml2-dev libssl-dev libssl-dev libsasl2-dev
+  ```
+  6. Install devtools
+  ```bash
+  sudo su - -c "R -e \"install.packages('devtools', repos='http://cran.rstudio.com/')\""
+  ```
 </details>
 <details>
   <summary>3. Install Shiny Server</summary>
   
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
+  1. Install some dependencies
+  ```bash
+  sudo apt-get -y install gdebi-core
+  ```
+  2. Install packages you will need
+  ```bash
+  sudo su - -c "R -e \"install.packages('shiny', repos='http://cran.rstudio.com/')\""
+  sudo su - -c "R -e \"install.packages('rmarkdown', repos='http://cran.rstudio.com/')\""
+  sudo su - -c "R -e \"install.packages('packrat', repos='http://cran.rstudio.com/')\""
+  ```
+  3. Get Shiny installation files
+  ```bash
+  wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.9.923-amd64.deb
+  ```
+  4. Install Shiny
+  ```bash
+  sudo gdebi shiny-server-1.5.9.923-amd64.deb
+  ```
+  5. Check that shiny server is working on port 3838: http://YOUR_IP:3838
 </details>
 <details>
-  <summary>3. Install MongoDB</summary>
+  <summary>3. Install Git</summary>
   
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
+  ```bash
+  sudo apt-get update
+  sudo apt-get install git
+  ```
 </details>
 <details>
-  <summary>3. Install App</summary>
+  <summary>4. Install MongoDB</summary>
   
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
+  1. Import publick key used by the management system for MongoDB
+  ```bash
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+  ```
+  2. Create a list file for MongoDB for Ubuntu 16.04
+  ```bash
+  echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+  ```
+  3. Install MongoDB
+   ```bash
+  sudo apt-get update
+  sudo apt-get install mongodb-org
+  ```
 </details>
-
-```bash
-# Clone this repository
-$ git clone https://github.com/luisgasco/noytext
-
-# Add more help to install the app
-```
+<details>
+  <summary>5. Install App</summary>
+  
+  1. Clone repository from Github
+  ```bash
+  git clone https://github.com/luisgasco/noytext
+  ```
+  2. Move noytext to srv folder (the standard path for shiny apps)
+  ```bash
+  sudo mv noytext /srv/shiny-server
+  ```
+  3. Go to that path
+  ```bash
+  cd /srv/shiny-server/noytext
+  ```
+  4. Enter to R like super user
+  ```bash
+  sudo R
+  ```
+  5. Enter this commands on R
+  ```R
+  # Activate packrat (library to manage R libraries)
+  packrat::on() 
+  # Install libraries on the noytext private library
+  packrat::restore()
+  ```
+</details>
 
 ## Credits
 This app uses the following open source programs:
