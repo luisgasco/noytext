@@ -88,7 +88,12 @@ To cite Noytext please use the next reference:
  - [**L. Gasco**, C. Clavel, C. Asensio and G. de Arcas “Beyond sound level monitoring: Exploitation of social media to gather citizens subjective response to noise”,  Science of the Total Environment. 658, p  69-79. March 2019. ](https://doi.org/10.1016/j.scitotenv.2018.12.071)
 
 ## About
-I developed this tool while I was PhD student at Instrumentation and Applied Acoustics Research Group (I2A2 Group) from Universidad POlitécnica de Madrid. Part of this code was developed while I was doing a research stay at Greta Team (Télécom Paristech)
+I developed this tool while I was a PhD student at Instrumentation and [Applied Acoustics Research Group (I2A2 Group)]() of [Universidad Politécnica de Madrid](). Part of this code was developed while I was doing a research stay at [Télecom Paristech]().
+
+![alt text](https://github.com/luisgasco/noytext/blob/master/www/logo.png "I2A2")
+![alt text](https://github.com/luisgasco/noytext/blob/master/www/logo2.jpg "UPM")
+![alt text](https://github.com/luisgasco/noytext/blob/master/www/logo_telecom.png "Télecom Paristech")
+
 
 ## License
 
