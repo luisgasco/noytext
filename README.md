@@ -55,7 +55,7 @@ To clone this app, you'll need [Git](https://git-scm.com) • To use this app, y
 
 Here you have the steps to run the app in your cloud server (running Ubuntu 16.04)
 <details>
-  <summary>1. Server</summary>
+  <summary>**1. Server**</summary>
   
   1. The first thing you should do is add a non-root user.
   ```bash
@@ -68,7 +68,7 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   ```
 </details>
 <details>
-  <summary>2. Install R</summary>
+  <summary>**2. Install R**</summary>
   
   1. Add R senial to our sources.list:
   ```bash
