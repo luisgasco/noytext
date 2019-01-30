@@ -55,7 +55,7 @@ To clone this app, you'll need [Git](https://git-scm.com) • To use this app, y
 
 Here you have the steps to run the app in your cloud server (running Ubuntu 16.04)
 <details>
-  <summary>**1. Server**</summary>
+  <summary><b>1. Server</b></summary>
   
   1. The first thing you should do is add a non-root user.
   ```bash
@@ -68,7 +68,7 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   ```
 </details>
 <details>
-  <summary>**2. Install R**</summary>
+  <summary><b>2. Install R</b></summary>
   
   1. Add R senial to our sources.list:
   ```bash
@@ -98,7 +98,7 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   ```
 </details>
 <details>
-  <summary>3. Install Shiny Server</summary>
+  <summary><b>3. Install Shiny Server</b></summary>
   
   1. Install some dependencies
   ```bash
@@ -121,7 +121,7 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   5. Check that shiny server is working on port 3838: http://YOUR_IP:3838
 </details>
 <details>
-  <summary>3. Install Git</summary>
+  <summary><b>4. Install Git</b></summary>
   
   ```bash
   sudo apt-get update
@@ -129,7 +129,7 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   ```
 </details>
 <details>
-  <summary>4. Install MongoDB</summary>
+  <summary><b>5. Install MongoDB</b></summary>
   
   1. Import publick key used by the management system for MongoDB
   ```bash
@@ -150,7 +150,7 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   ```
 </details>
 <details>
-  <summary>5. Install App</summary>
+  <summary><b>6. Install App</b></summary>
   
   1. Clone repository from Github
   ```bash
