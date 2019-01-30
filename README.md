@@ -93,8 +93,7 @@ I developed this tool while I was a PhD student at Instrumentation and [Applied 
 
 <div align="center"><a href="http://www.i2a2.upm.es/"> <img src="https://github.com/luisgasco/noytext/blob/master/www/logo.png" alt="I2A2"	width="auto" height="100" /></a> </div>
 
-<div align="center"><a href="http://www.upm.es/"><img src="https://github.com/luisgasco/noytext/blob/master/www/logo2.jpg" alt="KitUPMten"	width="auto" height="200" align="middle" /></a> </div>
-<div align="center"><a href=https://www.telecom-paristech.fr/"> <img src="https://github.com/luisgasco/noytext/blob/master/www/logo_telecom.png" alt="TELECOM"	width="auto" height="200" align="middle" /></a> </div>
+<div align="center"><a href="http://www.upm.es/"><img src="https://github.com/luisgasco/noytext/blob/master/www/logo2.jpg" alt="KitUPMten"	width="auto" height="180" align="middle" /></a> </div><div align="center"><a href=https://www.telecom-paristech.fr/"> <img src="https://github.com/luisgasco/noytext/blob/master/www/logo_telecom.png" alt="TELECOM"	width="auto" height="180" align="middle" /></a> </div>
 
 
 ## License
