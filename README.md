@@ -144,6 +144,10 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   sudo apt-get update
   sudo apt-get install mongodb-org
   ```
+  4. Set MongoDB as a Ubuntu service
+  ```bash
+  sudo service mongod start
+  ```
 </details>
 <details>
   <summary>5. Install App</summary>
@@ -172,6 +176,18 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   packrat::restore()
   ```
 </details>
+
+## Database configuration
+Before using the application, you have to create a MongoDB database with two collections to import your texts there.
+
+Here are the steps to follow to create the database, collections and import your data:
+
+
+```MongoDB
+  db.bios.find(
+   { _id: { $in: [ 5, ObjectId("507c35dd8fada716c89d0013") ] } }
+)
+```
 
 ## Credits
 This app uses the following open source programs:
