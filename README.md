@@ -59,8 +59,27 @@ If you are going to use it in a local environment, I recommend you to use [RStud
 
 If you want to allow other people to use the app, you should install [Shiny server](https://shiny.rstudio.com/) in your own server
 
+Here you have the steps to run the app in your cloud server (running Ubuntu 16.04)
 <details>
-  <summary>Server</summary>
+  <summary>1. Server</summary>
+  
+  a. The first thing you should do is add a non-root user.
+  ```bash
+  sudo adduser yourname
+  sudo gpasswd -a yourname sudo
+  ```
+  b. Switch to "yourname"
+  ```bash
+  su - yourname
+  ```
+</details>
+<details>
+  <summary>2. Install R</summary>
+  
+  
+</details>
+<details>
+  <summary>3. Install Shiny Server</summary>
   
   ## Heading
   1. A numbered
@@ -69,7 +88,7 @@ If you want to allow other people to use the app, you should install [Shiny serv
      * Sub bullets
 </details>
 <details>
-  <summary>Install R</summary>
+  <summary>3. Install MongoDB</summary>
   
   ## Heading
   1. A numbered
@@ -78,7 +97,7 @@ If you want to allow other people to use the app, you should install [Shiny serv
      * Sub bullets
 </details>
 <details>
-  <summary>Install Shiny Server</summary>
+  <summary>3. Install App</summary>
   
   ## Heading
   1. A numbered
