@@ -59,6 +59,34 @@ If you are going to use it in a local environment, I recommend you to use [RStud
 
 If you want to allow other people to use the app, you should install [Shiny server](https://shiny.rstudio.com/) in your own server
 
+<details>
+  <summary>Server</summary>
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
+<details>
+  <summary>Install R</summary>
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
+<details>
+  <summary>Install Shiny Server</summary>
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
+
 ```bash
 # Clone this repository
 $ git clone https://github.com/luisgasco/noytext
