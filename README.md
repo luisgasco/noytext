@@ -220,23 +220,22 @@ To configure the graphical interface of Noytext you must modify the .txt files p
 |  `MongoDB_conf.txt`  |    ...your MongoDB connection parameters   |
 |   `Survey_conf.txt`  |            ...your questionaire            |
 
-
-<h4 align="center">GeneralUI_conf.txt</h4>
-
-***
+<details>
+  <summary><h4 align="center">GeneralUI_conf.txt</h4><hr></summary>
 
 Noytext currently has 4 tabs (information, help, label and about). You can hide all of them, except the one used to annotate texts (label).The first element of each line represents the element you are going to modify. This file consists on 6 configuration lines:
 
 1. Title:
 
-  It allow you to specify the name of your project/app
-  i.e: *Title:Annotation for soundscapes*
+    It allow you to specify the name of your project/app
+      i.e: *Title:Annotation for soundscapes*
   
 2. Information:
-  It allow you to define the name of the introduction tab of your app, as well as if you want to show it and the file name of the html  that you are using for this purpose. The file must be placed at the root of the project.
-  i.e: a. To hide this tab --> *Information:Introduction to scoundscapes:FALSE:intro.html*
-       b. To show this tab --> *Information:Introduction to scoundscapes:TRUE:intro.html*
-  
+    It allow you to define the name of the introduction tab of your app, as well as if you want to show it and the file name of the html  that you are using for this purpose. The file must be placed at the root of the project. i.e:
+
+     a. To hide this tab --> *Information:Introduction to scoundscapes:FALSE:intro.html*
+     b. To show this tab --> *Information:Introduction to scoundscapes:TRUE:intro.html*
+
 3. Help:
   
   
@@ -248,7 +247,7 @@ Noytext currently has 4 tabs (information, help, label and about). You can hide 
   
 6. Shinydasboad appearance:
   
-
+</details>
 
 # Please do NOT use quotation marks when writing the name of your tabs/files/TRUE-FALSE constants.
 
