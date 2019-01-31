@@ -4,7 +4,7 @@
 </h1>
 
        
-<h4 align="center">A web-based platform for annotaing social media documents to be used in text mining based acoustic noise perception research.</h4>
+<h4 align="center">A web-based platform for annotating short-text documents to be used in applied text-mining based research.</h4>
 
 <p align="center">
   <a href="https://saythanks.io/to/luisgasco">
