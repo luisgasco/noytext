@@ -123,8 +123,9 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 <details>
   <summary><b>4. Install Git</b></summary>
   
-  Commands
-      ```bash
+   Commands
+     
+      ```
       sudo apt-get update
       sudo apt-get install git
       ```
