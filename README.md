@@ -176,35 +176,41 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
       packrat::restore()
       ```
 </details>
+<details>
+  <summary><b>7. Install Database configuration</b></summary>
+  
+   Before using the application, you have to create a MongoDB database with two collections to import your texts there. I recommend you to use a new database with two collections, where you should import your texts. The following steps show you the process:
+  1. Enter to MongoDB
+      ```bash
+      mongo
+      ```
+  2. Create database "db_name". This is just a name example, you can use the name you want.
+      ```js
+      use db_name
+      ```
+  3.  Create the "text_collection" and "user_collection" collections, which will contain your texts and annotations and your annotators data respectively.
+      ```js
+      db.createCollection("text_collection")
+      db.createCollection("user_collection")
+      # exit
+      quit()
+      ```
+  4. Import your texts. To show the process, we are going to import the file present on the "testing_data" folder of the app. This is done in Ubuntu bash. Note that you need to name your column with texts as "text", otherwise the application will crash.
+     ```bash
+     cd /srv/shiny-server/noytext/testing_data/
+     mongoimport --db db_name --collection text_collection --type CSV --headerline --file "test_text.csv"
+     ```
+   The general command to import a csv is:
 
-## Database configuration
-Before using the application, you have to create a MongoDB database with two collections to import your texts there. I recommend you to use a new database with two collections, where you should import your texts. The following steps show you the process:
+   *mongoimport --db db_name --collection "your_text_collection_name" --type CSV --headerline --file "path_to_your_csv_file"*
 
-1. Enter to MongoDB
-    ```bash
-    mongo
-    ```
-2. Create database "db_name". This is just a name example, you can use the name you want.
-    ```js
-    use db_name
-    ```
-3.  Create the "text_collection" and "user_collection" collections, which will contain your texts and annotations and your annotators data respectively.
-    ```js
-    db.createCollection("text_collection")
-    db.createCollection("user_collection")
-    # exit
-    quit()
-    ```
-4. Import your texts. To show the process, we are going to import the file present on the "testing_data" folder of the app. This is done in Ubuntu bash. Note that you need to name your column with texts as "text", otherwise the application will crash.
-   ```bash
-   cd /srv/shiny-server/noytext/testing_data/
-   mongoimport --db db_name --collection text_collection --type CSV --headerline --file "test_text.csv"
-   ```
-    The general command to import a csv is:
+  **I repeat that is very important to have the column of the texts named as "text", otherwise the application will not work.**
     
-    *mongoimport --db db_name --collection "your_text_collection_name" --type CSV --headerline --file "path_to_your_csv_file"*
-    
-    **I repeat that is very important to have the column of the texts named as "text", otherwise the application will not work.**
+</details>
+
+
+
+
 
 ## Credits
 This app uses the following open source programs:
