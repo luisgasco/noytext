@@ -272,14 +272,16 @@ Noytext currently has 4 tabs (information, help, label and about). You can hide 
 
 <details><summary><h4 align="center">HelpTexts_conf.txt<hr></h4></summary>
 
-This file allow you to change the helpers file from the tab help. You can use most of the html tags in the definition (I did not check all of them). Currently, you only can define the 4 sentences that will be shown in each step of this tab.
+  This file allow you to change the helpers file from the tab help. You can use most of the html tags in the definition (I did not check all of them). Currently, you only can define the 4 sentences that will be shown in each step of this tab.
 
-The first element of each line represents the element you are going to modify. i.e:
+  The first element of each line represents the element you are going to modify. i.e:
 
-*HELP1:<h3>This is the first helper with a h3 tag</h3>*
-*HELP2:<b> You can use bold tag </b> *
-*HELP3:You can write plain text*
-*HELP4:<h3>This is the last helper, you cannot add more</h3>*
+  ```
+  HELP1:<h3>This is the first helper with a h3 tag</h3>
+  HELP2:<b> You can use bold tag </b>
+  HELP3:You can write plain text
+  HELP4:<h3>This is the last helper, you cannot add more</h3>
+  ```
 
 </details>
 
