@@ -123,6 +123,7 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 <details>
   <summary><b>4. Install Git</b></summary>
   
+  Commands
       ```bash
       sudo apt-get update
       sudo apt-get install git
@@ -174,6 +175,8 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
       packrat::on() 
       # Install libraries on the noytext private library
       packrat::restore()
+      # Init packrat:
+      packrat::init()
       ```
 </details>
 <details>
