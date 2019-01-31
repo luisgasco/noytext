@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a><img src="https://github.com/luisgasco/noytext/blob/master/www/img/Noytext-02.jpg?raw=true" alt="Noytext" width="800"></a>
+  <a href="https://luisgasco.github.io/noytext_web/"><img src="https://github.com/luisgasco/noytext/blob/master/www/img/Noytext-02.jpg?raw=true" alt="Noytext" width="800"></a>
 </h1>
 
        
@@ -17,7 +17,8 @@
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#configuration">Configuration</a> •
   <a href="#credits">Credits</a> •
   <a href="#cite">Cite</a> •
   <a href="#about">About</a> •
@@ -44,12 +45,10 @@
   - Windows, macOS and Linux. You only need a valid [R-Studio](https://www.rstudio.com/) or [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/) installation.
 
 
-More examples of readmes:
-https://github.com/amitmerchant1990/electron-markdownify
-https://github.com/aimeos/aimeos-typo3
+<!---More examples of readmes: https://github.com/amitmerchant1990/electron-markdownify https://github.com/aimeos/aimeos-typo3 )-->
 
 
-## How To Use
+## Installation
 
 To clone this app, you'll need [Git](https://git-scm.com) • To use this app, you'll need both [R](https://www.r-project.org/) and [MongoDB](https://www.mongodb.com/) installed on your machine • If you are going to use it in a local environment, I recommend you to use [RStudio](https://www.rstudio.com/) • If you want to allow other people to use the app, you should install [Shiny server](https://shiny.rstudio.com/) in your own server
 
@@ -122,12 +121,10 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 </details>
 <details>
   <summary><b>4. Install Git</b></summary>
-  
-  Commands
-      ```bash
+     
       sudo apt-get update
       sudo apt-get install git
-      ```
+      
 </details>
 <details>
   <summary><b>5. Install MongoDB</b></summary>
@@ -212,6 +209,137 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 </details>
 
 
+## Configuration
+To configure the graphical interface of Noytext you must modify the .txt files present in the path *noytext/config_files/*. These files use the "::" symbol as a separator, so you cannot use that symbol in your texts. On the other hand, you should not put quotation marks in these documents because it could cause problems when reading the lines.
+
+
+|      File name     |               Configure...              |
+|:------------------:|:---------------------------------------:|
+| `GeneralUI_conf.txt` | ...the elements of the graphical interface |
+| `HelpTexts_conf.txt` |     ...the helpers from the tab "help"     |
+|  `MongoDB_conf.txt`  |    ...your MongoDB connection parameters   |
+|   `Survey_conf.txt`  |            ...your questionaire            |
+
+<details><summary><b>GeneralUI_conf.txt parameters</b></summary>
+
+Noytext currently has 4 tabs (information, help, label and about). You can hide all of them, except the one used to annotate texts (label).The first element of each line represents the element you are going to modify. This file consists on 6 configuration lines:
+
+**1. Title:**
+
+   It allow you to specify the name of your project/app. i.e:
+    
+    Title:Annotation for soundscapes
+  
+**2. Information:**
+    
+   It allow you to define the name of the introduction tab of your app, as well as if you want to show it and the file name of the html  that you are using for this purpose. The file must be placed at the root of the project. i.e:
+
+   a. To hide this tab:
+      
+      Information:Introduction to scoundscapes:FALSE:intro.html
+
+   b. To show this tab:
+      
+      Information:Introduction to scoundscapes:TRUE:intro.html
+
+**3. Help:**
+    
+   It allow you to define the name of the help tab, as well as if you want to show it or no.i.e:
+  
+   a. To hide this tab: 
+   
+    Information:Introduction to scoundscapes:FALSE
+     
+   b. To show this tab:
+   
+    Information:Introduction to scoundscapes:TRUE
+   
+**4. Label:**
+  
+   Change the title of the label tab.i.e:
+   
+    Label:Help us to annotate
+  
+**5. About:**
+
+   It allow you to define the name of the about tab of your app, as well as if you want to show it and the file name of the html  that you are using for this purpose. The file must be placed at the root of the project. i.e:
+
+   a. To hide this tab: 
+    
+    About:Our team:FALSE:index.html
+
+   b. To show this tab:
+    
+    About:Our team:TRUE:index.html
+  
+**6. Shinydasboad appearance:**
+  
+   You can use shinythemes constans to change the color and style of the NavBar. This values can be found on https://rstudio.github.io/shinythemes/ .i.e:
+   
+    Shinydasboard_appearance:sandstone
+   
+</details>
+
+
+
+<details><summary><b>HelpTexts_conf.txt parameters</b></summary>
+
+  This file allow you to change the helpers file from the tab help. You can use most of the html tags in the definition (I did not check all of them). Currently, you only can define the 4 sentences that will be shown in each step of this tab.
+
+  The first element of each line represents the element you are going to modify. i.e:
+
+  ```
+  HELP1:<h3>This is the first helper with a h3 tag</h3>
+  HELP2:<b> You can use bold tag </b>
+  HELP3:You can write plain text
+  HELP4:<h3>This is the last helper, you cannot add more</h3>
+  ```
+
+</details>
+
+
+
+<details><summary><b>MongoDB_conf.txt parameters</b></summary>
+
+   Here you can define your connection URL, database port, name, and collections. If you want to register user data, besides the text collection you will need to create a collection for this purpose (it was created in the installation guide). The file configures a localhost URL and the port 27017 by default, this is the standard configuration required to access MongoDB from the app in an Ubuntu instance. 
+  
+  ```
+  ConnectionURL:localhost
+  ConnectionPORT:27017
+  DatabaseNAME:db_name
+  CollectionTextNAME:text_collection
+  CollectionUsersNAME:user_collection
+  ```
+
+  On the other hand, you can set in this file the number of times you need a text be annotated by different users:
+  
+  ```
+  num_annotations_text:3
+  ```
+</details>
+
+
+<details><summary><b>Survey_conf.txt parameters</b></summary>
+  
+  1. This file allows you to define if you need to show a survey to annotators the first time they log in. i.e:
+  
+      a. To show survey and user login: 
+
+          SurveyNeeded:TRUE
+
+      b. To hide survey and user login:
+
+          SurveyNeeded:FALSE
+
+  2. If you decide to show the survey to your users, you have to define de number of questions the survey will have:
+  
+    NumberQuestions:10
+
+
+  3. Define the questions you need:
+              UNDER CONSTRUCTION
+
+</details>
 
 
 
