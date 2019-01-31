@@ -177,7 +177,7 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
       ```
 </details>
 <details>
-  <summary><b>7. Install Database configuration</b></summary>
+  <summary><b>7. Database creation and configuration</b></summary>
   
    Before using the application, you have to create a MongoDB database with two collections to import your texts there. I recommend you to use a new database with two collections, where you should import your texts. The following steps show you the process:
   1. Enter to MongoDB
