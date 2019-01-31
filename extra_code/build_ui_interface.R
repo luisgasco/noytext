@@ -78,8 +78,7 @@ help_content <- function(help){
 #' 
 label_content <- function(){
   tagList(
-    tags$head(includeScript("google-analytics.js"),
-              tags$link(rel = "stylesheet", type = "text/css", href = "http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css"),
+    tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css"),
               tags$link(rel = "stylesheet", type = "text/css", href = "http://fonts.googleapis.com/css?family=Quicksand:300,400"),
               tags$link(rel = "stylesheet", type = "text/css", href = "http://fonts.googleapis.com/css?family=Lato:400,300"),
               tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
