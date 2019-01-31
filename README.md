@@ -321,14 +321,25 @@ Noytext currently has 4 tabs (information, help, label and about). You can hide 
 
 <details><summary><b>Survey_conf.txt parameters</b></summary>
   
+  1. This file allows you to define if you need to show a survey to annotators the first time they log in. i.e:
   
-Under construction
+      a. To show survey and user login: 
 
+          SurveyNeeded:TRUE
+
+      b. To hide survey and user login:
+
+          SurveyNeeded:FALSE
+
+  2. If you decide to show the survey to your users, you have to define de number of questions the survey will have:
+  
+    NumberQuestions:10
+
+
+  3. Define the questions you need:
+              UNDER CONSTRUCTION
 
 </details>
-
-
-
 
 
 
