@@ -181,9 +181,9 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 Before using the application, you have to create a MongoDB database with two collections to import your texts there. I recommend you to use a new database with two collections, where you should import your texts. The following steps show you the process:
 
 1. Enter to MongoDB
-  ```bash
-  mongo
-  ```
+    ```bash
+    mongo
+    ```
 2. Create database "db_name". This is just a name example, you can use the name you want.
     ```js
     use db_name
@@ -201,7 +201,9 @@ Before using the application, you have to create a MongoDB database with two col
    mongoimport --db db_name --collection text_collection --type CSV --headerline --file "test_text.csv"
    ```
     The general command to import a csv is:
+    
     *mongoimport --db db_name --collection "your_text_collection_name" --type CSV --headerline --file "path_to_your_csv_file"*
+    
     **I repeat that is very important to have the column of the texts named as "text", otherwise the application will not work.**
 
 ## Credits
