@@ -45,7 +45,7 @@
   - Windows, macOS and Linux. You only need a valid [R-Studio](https://www.rstudio.com/) or [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/) installation.
 
 
-[//]: #(More examples of readmes: https://github.com/amitmerchant1990/electron-markdownify https://github.com/aimeos/aimeos-typo3 )
+<!---More examples of readmes: https://github.com/amitmerchant1990/electron-markdownify https://github.com/aimeos/aimeos-typo3 )-->
 
 
 ## Installation
