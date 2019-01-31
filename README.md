@@ -222,10 +222,13 @@ To configure the graphical interface of Noytext you must modify the .txt files p
 
 
 <h4 align="center">GeneralUI_conf.txt</h4>
+
 ***
+
 Noytext currently has 4 tabs (information, help, label and about). You can hide all of them, except the one used to annotate texts (label).The first element of each line represents the element you are going to modify. This file consists on 6 configuration lines:
 
 1. Title:
+
   It allow you to specify the name of your project/app
   i.e: *Title:Annotation for soundscapes*
   
