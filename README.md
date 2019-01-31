@@ -220,7 +220,7 @@ To configure the graphical interface of Noytext you must modify the .txt files p
 |  `MongoDB_conf.txt`  |    ...your MongoDB connection parameters   |
 |   `Survey_conf.txt`  |            ...your questionaire            |
 
-<details><summary><p align="center" style="font-size:large">GeneralUI_conf.txt</p><hr></summary>
+<details><summary><h4 align="center">GeneralUI_conf.txt<hr></h4></summary>
 
 Noytext currently has 4 tabs (information, help, label and about). You can hide all of them, except the one used to annotate texts (label).The first element of each line represents the element you are going to modify. This file consists on 6 configuration lines:
 
