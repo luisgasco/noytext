@@ -210,7 +210,7 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 
 
 ## Configuration
-To configure the graphical interface of Noytext you must modify the .txt files present in the path *noytext/config_files/*. These files use the "::" symbol as a separator, so you cannot use that symbol in your texts. On the other hand, you should not put quotation marks in these documents because it could cause problems when reading the lines.
+To configure the graphical interface of Noytext you must modify the .txt files present in the path *noytext/config_files/*. These files use the ":" symbol as a separator, so you cannot use that symbol in your texts. On the other hand, you should not put quotation marks in these documents because it could cause problems when reading the lines.
 
 
 |      File name     |               Configure...              |
