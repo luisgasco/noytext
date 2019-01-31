@@ -210,7 +210,14 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 
 
 ## Configuration
+To configure the graphical interface of Noytext you must modify the .txt files present in the path *noytext/config_files/*
 
+|      File name     |               Configure...              |
+|:------------------:|:---------------------------------------:|
+| `GeneralUI_conf.txt` | the elements of the graphical interface |
+| `HelpTexts_conf.txt` |     the helpers from the tab "help"     |
+|  `MongoDB_conf.txt`  |    your MongoDB connection parameters   |
+|   `Survey_conf.txt`  |            your questionaire            |
 
 
 ## Credits
