@@ -58,136 +58,162 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   <summary><b>1. Server</b></summary>
   
   1. The first thing you should do is add a non-root user.
-  ```bash
-  sudo adduser yourname
-  sudo gpasswd -a yourname sudo
-  ```
+      ```bash
+      sudo adduser yourname
+      sudo gpasswd -a yourname sudo
+      ```
   2. Switch to "yourname"
-  ```bash
-  su - yourname
-  ```
+      ```bash
+      su - yourname
+      ```
 </details>
 <details>
   <summary><b>2. Install R</b></summary>
   
   1. Add R senial to our sources.list:
-  ```bash
-  sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
-  ```
+      ```bash
+      sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
+      ```
   2. Add the public keys:
-  ```bash
-  gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
-  gpg -a --export E084DAB9 | sudo apt-key add -
-  ```
+      ```bash
+      gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+      gpg -a --export E084DAB9 | sudo apt-key add -
+      ```
   3. Install R
-  ```bash
-  sudo apt-get update
-  sudo apt-get -y install r-base
-  ```
+      ```bash
+      sudo apt-get update
+      sudo apt-get -y install r-base
+      ```
   4. Check that R is working (use the command quit() to exit)
-  ```bash
-  R
-  ```
+      ```bash
+      R
+      ```
   5. Install dependencies to install R-libraries
-  ```bash
-  sudo apt-get -y install libcurl4-gnutls-dev libxml2-dev libssl-dev libssl-dev libsasl2-dev
-  ```
+      ```bash
+      sudo apt-get -y install libcurl4-gnutls-dev libxml2-dev libssl-dev libssl-dev libsasl2-dev
+      ```
   6. Install devtools
-  ```bash
-  sudo su - -c "R -e \"install.packages('devtools', repos='http://cran.rstudio.com/')\""
-  ```
+      ```bash
+      sudo su - -c "R -e \"install.packages('devtools', repos='http://cran.rstudio.com/')\""
+      ```
 </details>
 <details>
   <summary><b>3. Install Shiny Server</b></summary>
   
   1. Install some dependencies
-  ```bash
-  sudo apt-get -y install gdebi-core
-  ```
+      ```bash
+      sudo apt-get -y install gdebi-core
+      ```
   2. Install packages you will need
-  ```bash
-  sudo su - -c "R -e \"install.packages('shiny', repos='http://cran.rstudio.com/')\""
-  sudo su - -c "R -e \"install.packages('rmarkdown', repos='http://cran.rstudio.com/')\""
-  sudo su - -c "R -e \"install.packages('packrat', repos='http://cran.rstudio.com/')\""
-  ```
+      ```bash
+      sudo su - -c "R -e \"install.packages('shiny', repos='http://cran.rstudio.com/')\""
+      sudo su - -c "R -e \"install.packages('rmarkdown', repos='http://cran.rstudio.com/')\""
+      sudo su - -c "R -e \"install.packages('packrat', repos='http://cran.rstudio.com/')\""
+      ```
   3. Get Shiny installation files
-  ```bash
-  wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.9.923-amd64.deb
-  ```
+      ```bash
+      wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.9.923-amd64.deb
+      ```
   4. Install Shiny
-  ```bash
-  sudo gdebi shiny-server-1.5.9.923-amd64.deb
-  ```
+      ```bash
+      sudo gdebi shiny-server-1.5.9.923-amd64.deb
+      ```
   5. Check that shiny server is working on port 3838: http://YOUR_IP:3838
 </details>
 <details>
   <summary><b>4. Install Git</b></summary>
   
-  ```bash
-  sudo apt-get update
-  sudo apt-get install git
-  ```
+  Commands
+      ```bash
+      sudo apt-get update
+      sudo apt-get install git
+      ```
 </details>
 <details>
   <summary><b>5. Install MongoDB</b></summary>
   
   1. Import publick key used by the management system for MongoDB
-  ```bash
-  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
-  ```
+      ```bash
+      sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+      ```
   2. Create a list file for MongoDB for Ubuntu 16.04
-  ```bash
-  echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
-  ```
+      ```bash
+      echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+      ```
   3. Install MongoDB
-   ```bash
-  sudo apt-get update
-  sudo apt-get install mongodb-org
-  ```
+      ```bash
+      sudo apt-get update
+      sudo apt-get install mongodb-org
+      ```
   4. Set MongoDB as a Ubuntu service
-  ```bash
-  sudo service mongod start
-  ```
+      ```bash
+      sudo service mongod start
+      ```
 </details>
 <details>
   <summary><b>6. Install App</b></summary>
   
   1. Clone repository from Github
-  ```bash
-  git clone https://github.com/luisgasco/noytext
-  ```
+      ```bash
+      git clone https://github.com/luisgasco/noytext
+      ```
   2. Move noytext to srv folder (the standard path for shiny apps)
-  ```bash
-  sudo mv noytext /srv/shiny-server
-  ```
+      ```bash
+      sudo mv noytext /srv/shiny-server
+      ```
   3. Go to that path
-  ```bash
-  cd /srv/shiny-server/noytext
-  ```
+      ```bash
+      cd /srv/shiny-server/noytext
+      ```
   4. Enter to R like super user
-  ```bash
-  sudo R
-  ```
+      ```bash
+      sudo R
+      ```
   5. Enter this commands on R
-  ```R
-  # Activate packrat (library to manage R libraries)
-  packrat::on() 
-  # Install libraries on the noytext private library
-  packrat::restore()
-  ```
+      ```R
+      # Activate packrat (library to manage R libraries)
+      packrat::on() 
+      # Install libraries on the noytext private library
+      packrat::restore()
+      # Init packrat:
+      packrat::init()
+      ```
+</details>
+<details>
+  <summary><b>7. Database creation and configuration</b></summary>
+  
+   Before using the application, you have to create a MongoDB database with two collections to import your texts there. I recommend you to use a new database with two collections, where you should import your texts. The following steps show you the process:
+  1. Enter to MongoDB
+      ```bash
+      mongo
+      ```
+  2. Create database "db_name". This is just a name example, you can use the name you want.
+      ```js
+      use db_name
+      ```
+  3.  Create the "text_collection" and "user_collection" collections, which will contain your texts and annotations and your annotators data respectively.
+      ```js
+      db.createCollection("text_collection")
+      db.createCollection("user_collection")
+      # exit
+      quit()
+      ```
+  4. Import your texts. To show the process, we are going to import the file present on the "testing_data" folder of the app. This is done in Ubuntu bash. Note that you need to name your column with texts as "text", otherwise the application will crash.
+     ```bash
+     cd /srv/shiny-server/noytext/testing_data/
+     mongoimport --db db_name --collection text_collection --type CSV --headerline --file "test_text.csv"
+     ```
+   The general command to import a csv is:
+
+   *mongoimport --db db_name --collection "your_text_collection_name" --type CSV --headerline --file "path_to_your_csv_file"*
+
+  **I repeat that is very important to have the column of the texts named as "text", otherwise the application will not work.**
+    
 </details>
 
-## Database configuration
-Before using the application, you have to create a MongoDB database with two collections to import your texts there.
-
-Here are the steps to follow to create the database, collections and import your data:
 
 
-```js
-  db.bios.find(
-   { _id: { $in: [ 5, ObjectId("507c35dd8fada716c89d0013") ] } }
-)
-```
+
 
 ## Credits
 This app uses the following open source programs:
