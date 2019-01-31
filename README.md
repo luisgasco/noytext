@@ -51,19 +51,142 @@ https://github.com/aimeos/aimeos-typo3
 
 ## How To Use
 
-To clone this app, you'll need [Git](https://git-scm.com).
+To clone this app, you'll need [Git](https://git-scm.com) • To use this app, you'll need both [R](https://www.r-project.org/) and [MongoDB](https://www.mongodb.com/) installed on your machine • If you are going to use it in a local environment, I recommend you to use [RStudio](https://www.rstudio.com/) • If you want to allow other people to use the app, you should install [Shiny server](https://shiny.rstudio.com/) in your own server
 
-To use this app, you'll need both [R](https://www.r-project.org/) and [MongoDB](https://www.mongodb.com/) installed on your machine. 
+Here you have the steps to run the app in your cloud server (running Ubuntu 16.04)
+<details>
+  <summary><b>1. Server</b></summary>
+  
+  1. The first thing you should do is add a non-root user.
+  ```bash
+  sudo adduser yourname
+  sudo gpasswd -a yourname sudo
+  ```
+  2. Switch to "yourname"
+  ```bash
+  su - yourname
+  ```
+</details>
+<details>
+  <summary><b>2. Install R</b></summary>
+  
+  1. Add R senial to our sources.list:
+  ```bash
+  sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
+  ```
+  2. Add the public keys:
+  ```bash
+  gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+  gpg -a --export E084DAB9 | sudo apt-key add -
+  ```
+  3. Install R
+  ```bash
+  sudo apt-get update
+  sudo apt-get -y install r-base
+  ```
+  4. Check that R is working (use the command quit() to exit)
+  ```bash
+  R
+  ```
+  5. Install dependencies to install R-libraries
+  ```bash
+  sudo apt-get -y install libcurl4-gnutls-dev libxml2-dev libssl-dev libssl-dev libsasl2-dev
+  ```
+  6. Install devtools
+  ```bash
+  sudo su - -c "R -e \"install.packages('devtools', repos='http://cran.rstudio.com/')\""
+  ```
+</details>
+<details>
+  <summary><b>3. Install Shiny Server</b></summary>
+  
+  1. Install some dependencies
+  ```bash
+  sudo apt-get -y install gdebi-core
+  ```
+  2. Install packages you will need
+  ```bash
+  sudo su - -c "R -e \"install.packages('shiny', repos='http://cran.rstudio.com/')\""
+  sudo su - -c "R -e \"install.packages('rmarkdown', repos='http://cran.rstudio.com/')\""
+  sudo su - -c "R -e \"install.packages('packrat', repos='http://cran.rstudio.com/')\""
+  ```
+  3. Get Shiny installation files
+  ```bash
+  wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.9.923-amd64.deb
+  ```
+  4. Install Shiny
+  ```bash
+  sudo gdebi shiny-server-1.5.9.923-amd64.deb
+  ```
+  5. Check that shiny server is working on port 3838: http://YOUR_IP:3838
+</details>
+<details>
+  <summary><b>4. Install Git</b></summary>
+  
+  ```bash
+  sudo apt-get update
+  sudo apt-get install git
+  ```
+</details>
+<details>
+  <summary><b>5. Install MongoDB</b></summary>
+  
+  1. Import publick key used by the management system for MongoDB
+  ```bash
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+  ```
+  2. Create a list file for MongoDB for Ubuntu 16.04
+  ```bash
+  echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+  ```
+  3. Install MongoDB
+   ```bash
+  sudo apt-get update
+  sudo apt-get install mongodb-org
+  ```
+  4. Set MongoDB as a Ubuntu service
+  ```bash
+  sudo service mongod start
+  ```
+</details>
+<details>
+  <summary><b>6. Install App</b></summary>
+  
+  1. Clone repository from Github
+  ```bash
+  git clone https://github.com/luisgasco/noytext
+  ```
+  2. Move noytext to srv folder (the standard path for shiny apps)
+  ```bash
+  sudo mv noytext /srv/shiny-server
+  ```
+  3. Go to that path
+  ```bash
+  cd /srv/shiny-server/noytext
+  ```
+  4. Enter to R like super user
+  ```bash
+  sudo R
+  ```
+  5. Enter this commands on R
+  ```R
+  # Activate packrat (library to manage R libraries)
+  packrat::on() 
+  # Install libraries on the noytext private library
+  packrat::restore()
+  ```
+</details>
 
-If you are going to use it in a local environment, I recommend you to use [RStudio](https://www.rstudio.com/).
+## Database configuration
+Before using the application, you have to create a MongoDB database with two collections to import your texts there.
 
-If you want to allow other people to use the app, you should install [Shiny server](https://shiny.rstudio.com/) in your own server
+Here are the steps to follow to create the database, collections and import your data:
 
-```bash
-# Clone this repository
-$ git clone https://github.com/luisgasco/noytext
 
-# Add more help to install the app
+```js
+  db.bios.find(
+   { _id: { $in: [ 5, ObjectId("507c35dd8fada716c89d0013") ] } }
+)
 ```
 
 ## Credits
@@ -109,4 +232,3 @@ AGPL-3.0
 > GitHub [@luisgasco](https://github.com/luisgasco) &nbsp;&middot;&nbsp;
 > Twitter [@luisgasco](https://twitter.com/luisgasco)
 > Facebook [Luis Gascó Sánchez page](https://www.facebook.com/Luis-Gasco-Sanchez-165003227504667)
-
