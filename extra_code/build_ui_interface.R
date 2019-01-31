@@ -151,7 +151,11 @@ gen_navbar_elem <- function(gen_conf){
   navbar<- navbarPage(
     id="tabs",
     theme = shinytheme(gen_conf[6,]$text_title),  # <--- To use a theme, uncomment this
-    title=div(img(src="www/img/logo_noytext_white.png"),gen_conf[1,]$text_title),
+    title=div(a(href="https://luisgasco.github.io/noytext_web/",
+                target="_blank",
+                # shiny::tags$style('border-bottom:"#fff0"'),
+                img(src="www/img/logo_noytext_white.png", width="150px")),
+              gen_conf[1,]$text_title),
     tabPanel(gen_conf[2,]$text_title, includeHTML(gen_conf[2,]$file)),
     tabPanel(gen_conf[3,]$text_title,
              value = "ejecutar_help",
