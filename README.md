@@ -122,13 +122,10 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 </details>
 <details>
   <summary><b>4. Install Git</b></summary>
-  
-   Commands
      
-      ```
       sudo apt-get update
       sudo apt-get install git
-      ```
+      
 </details>
 <details>
   <summary><b>5. Install MongoDB</b></summary>
