@@ -210,7 +210,8 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 
 
 ## Configuration
-To configure the graphical interface of Noytext you must modify the .txt files present in the path *noytext/config_files/*
+To configure the graphical interface of Noytext you must modify the .txt files present in the path *noytext/config_files/*. These files use the "::" symbol as a separator, so you cannot use that symbol in your texts. On the other hand, you should not put quotation marks in these documents because it could cause problems when reading the lines.
+
 
 |      File name     |               Configure...              |
 |:------------------:|:---------------------------------------:|
@@ -220,24 +221,73 @@ To configure the graphical interface of Noytext you must modify the .txt files p
 |   `Survey_conf.txt`  |            ...your questionaire            |
 
 
-<div style="background-color:grey;color:white;padding:20px;"><h4 align="center">GeneralUI_conf.txt</h4></div>
-
-#### GeneralUI_conf.txt
-To configure the graphical interface of Noytext you must modify the .txt files present in the path *noytext/config_files/*
-
-#### HelpTexts_conf.txt
+<h4 align="center">GeneralUI_conf.txt</h4>
 ***
-To configure the graphical interface of Noytext you must modify the .txt files present in the path *noytext/config_files/*
+Noytext currently has 4 tabs (information, help, label and about). You can hide all of them, except the one used to annotate texts (label).The first element of each line represents the element you are going to modify. This file consists on 6 configuration lines:
 
-#### MongoDB_conf.txt
+1. Title:
+  It allow you to specify the name of your project/app
+  i.e: *Title:Annotation for soundscapes*
+  
+2. Information:
+  It allow you to define the name of the introduction tab of your app, as well as if you want to show it and the file name of the html  that you are using for this purpose. The file must be placed at the root of the project.
+  i.e: a. To hide this tab --> *Information:Introduction to scoundscapes:FALSE:intro.html*
+       b. To show this tab --> *Information:Introduction to scoundscapes:TRUE:intro.html*
+  
+3. Help:
+  
+  
+4. Label:
+  
+  
+5. About:
+  
+  
+6. Shinydasboad appearance:
+  
+
+
+# Please do NOT use quotation marks when writing the name of your tabs/files/TRUE-FALSE constants.
+
+# Specifify the name of your webapp/project. 
+Title:project_title
+
+# Set the name of your introduction tab in the app. The order of elements is:
+# Information:"title of the tab in your app": "TRUE/FALSE -> To show or not to show this tab" : "html file of this page"
+Information:title_information_tab:TRUE:intro.html
+
+# Do you want to show a tab to teach people how the app works? 
+# Help:"title of this tab in your app": "TRUE/FALSE -> To show or not to show this tab" 
+Help:title_help_tab:TRUE
+
+# Change the title name of the label tab in the app.
+# Label:"name of the label tab"
+Label:title_label_tab
+
+# Do you want to show a tab with information about the team, or whatever? If you want to hide it set the label as FALSE.
+# If you want to show it select the html file present on the root of the app
+# About:"title of the label tab":"TRUE/FALSE-> To show or not to show this tab":"html file of this page"
+About:title_about_tab:TRUE:index.html
+
+# You can use shinythemes values to change the color of the NavBar. Those values can be found on https://rstudio.github.io/shinythemes/
+Shinydasboard_appearance:sandstone
+
+<h4 align="center">HelpTexts_conf.txt</h4>
 ***
 
-To configure the graphical interface of Noytext you must modify the .txt files present in the path *noytext/config_files/*
 
-#### Survey_conf.txt
+
+<h4 align="center">MongoDB_conf.txt</h4>
 ***
 
-To configure the graphical interface of Noytext you must modify the .txt files present in the path *noytext/config_files/*
+
+
+<h4 align="center">Survey_conf.txt</h4>
+***
+
+
+
+
 
 
 ## Credits
