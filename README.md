@@ -17,7 +17,8 @@
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#configuration">Configuration</a> •
   <a href="#credits">Credits</a> •
   <a href="#cite">Cite</a> •
   <a href="#about">About</a> •
@@ -49,7 +50,7 @@ https://github.com/amitmerchant1990/electron-markdownify
 https://github.com/aimeos/aimeos-typo3
 
 
-## How To Use
+## Installation
 
 To clone this app, you'll need [Git](https://git-scm.com) • To use this app, you'll need both [R](https://www.r-project.org/) and [MongoDB](https://www.mongodb.com/) installed on your machine • If you are going to use it in a local environment, I recommend you to use [RStudio](https://www.rstudio.com/) • If you want to allow other people to use the app, you should install [Shiny server](https://shiny.rstudio.com/) in your own server
 
@@ -210,6 +211,7 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 </details>
 
 
+## Configuration
 
 
 
