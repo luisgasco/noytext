@@ -219,6 +219,9 @@ To configure the graphical interface of Noytext you must modify the .txt files p
 |  `MongoDB_conf.txt`  |    ...your MongoDB connection parameters   |
 |   `Survey_conf.txt`  |            ...your questionaire            |
 
+
+<div style="background-color:grey;color:white;padding:20px;"><h4 align="center">GeneralUI_conf.txt</h4></div>
+
 #### GeneralUI_conf.txt
 To configure the graphical interface of Noytext you must modify the .txt files present in the path *noytext/config_files/*
 
