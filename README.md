@@ -226,45 +226,57 @@ Noytext currently has 4 tabs (information, help, label and about). You can hide 
 
 **1. Title:**
 
-   It allow you to specify the name of your project/app
+   It allow you to specify the name of your project/app. i.e:
     
-   i.e: *Title:Annotation for soundscapes*
+    Title:Annotation for soundscapes
   
 **2. Information:**
     
    It allow you to define the name of the introduction tab of your app, as well as if you want to show it and the file name of the html  that you are using for this purpose. The file must be placed at the root of the project. i.e:
 
-   a. To hide this tab --> *Information:Introduction to scoundscapes:FALSE:intro.html*
+   a. To hide this tab:
+      
+      Information:Introduction to scoundscapes:FALSE:intro.html
 
-   b. To show this tab --> *Information:Introduction to scoundscapes:TRUE:intro.html*
+   b. To show this tab:
+      
+      Information:Introduction to scoundscapes:TRUE:intro.html
 
 **3. Help:**
     
    It allow you to define the name of the help tab, as well as if you want to show it or no.i.e:
   
-   a. To hide this tab --> *Information:Introduction to scoundscapes:FALSE*
+   a. To hide this tab: 
+   
+    Information:Introduction to scoundscapes:FALSE
      
-   b. To show this tab --> *Information:Introduction to scoundscapes:TRUE*
+   b. To show this tab:
+   
+    Information:Introduction to scoundscapes:TRUE
    
 **4. Label:**
   
-   Change the title of the label tab:
+   Change the title of the label tab.i.e:
    
-   i.e: *Label:Help us to annotate*
+    Label:Help us to annotate
   
 **5. About:**
 
    It allow you to define the name of the about tab of your app, as well as if you want to show it and the file name of the html  that you are using for this purpose. The file must be placed at the root of the project. i.e:
 
-   a. To hide this tab --> *About:Our team:FALSE:index.html*
+   a. To hide this tab: 
+    
+    About:Our team:FALSE:index.html
 
-   b. To show this tab --> *About:Our team:TRUE:index.html*
+   b. To show this tab:
+    
+    About:Our team:TRUE:index.html
   
 **6. Shinydasboad appearance:**
   
-   You can use shinythemes constans to change the color and style of the NavBar. This values can be found on https://rstudio.github.io/shinythemes/
+   You can use shinythemes constans to change the color and style of the NavBar. This values can be found on https://rstudio.github.io/shinythemes/ .i.e:
    
-   i.e: *Shinydasboard_appearance:sandstone*
+    Shinydasboard_appearance:sandstone
    
 </details>
 
@@ -289,13 +301,27 @@ Noytext currently has 4 tabs (information, help, label and about). You can hide 
 
 <details><summary><h4 align="center">MongoDB_conf.txt<hr></h4></summary>
 
+   Here you can define your connection URL, database port, name, and collections. If you want to register user data, besides the text collection you will need to create a collection for this purpose (it was created in the installation guide). The file configures a localhost URL and the port 27017 by default, this is the standard configuration required to access MongoDB from the app in an Ubuntu instance. 
+  
+  ```
+  ConnectionURL:localhost
+  ConnectionPORT:27017
+  DatabaseNAME:db_name
+  CollectionTextNAME:text_collection
+  CollectionUsersNAME:user_collection
+  ```
 
+  On the other hand, you can set in this file the number of times you need a text be annotated by different users:
+  
+  ```
+  num_annotations_text:3
+  ```
 </details>
 
 
-
 <details><summary><h4 align="center">Survey_conf.txt<hr></h4></summary>
-
+  
+Under construction
 
 </details>
 
