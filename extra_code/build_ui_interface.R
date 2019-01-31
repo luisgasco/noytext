@@ -40,10 +40,11 @@ help_content <- function(help){
       fluidRow(align="center",
                tags$div(class="radio_ayuda",
                         shinyjs::disabled(radioButtons("radio_ayuda", label = h3("Categories:"),
-                                                       choices = list("Noise complaint" = "r_perc_neg",
-                                                                      "Enjoying noises or sounds" = "r_perc_pos",
-                                                                      "Acoustic noise news or opinions about acoustic noise news" = "ruido_noticias_amb",
-                                                                      "Others" = "ruido_noacustica"), 
+                                                       choiceNames = list(annotation_texts$text[1],annotation_texts$text[2],
+                                                                            annotation_texts$text[3],annotation_texts$text[4]),
+                                                       choiceValues = list(annotation_texts$id[1],annotation_texts$id[2],
+                                                                            annotation_texts$id[3],annotation_texts$id[4]),
+                                                    
                                                        selected = character(0))
                         ))),
       data.step = 2,
@@ -151,7 +152,7 @@ gen_navbar_elem <- function(gen_conf){
   navbar<- navbarPage(
     id="tabs",
     theme = shinytheme(gen_conf[6,]$text_title),  # <--- To use a theme, uncomment this
-    title=gen_conf[1,]$text_title,
+    title=div(img(src="www/img/logo_noytext_white.png"),gen_conf[1,]$text_title),
     tabPanel(gen_conf[2,]$text_title, includeHTML(gen_conf[2,]$file)),
     tabPanel(gen_conf[3,]$text_title,
              value = "ejecutar_help",
@@ -171,6 +172,8 @@ gen_navbar_elem <- function(gen_conf){
   navbar[[3]][[1]][[3]][[1]][[3]][[2]][[3]][[1]][[4]]$children[[1]]$attribs$style <-hide_show_class(gen_conf[5,]$logical)
   output_w_style <- tagList(
     tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")),
+    tags$head(tags$link(rel = "icon", type = "image/png", href = "www/img/logo_circle.png"),
+              tags$title("Noytext")),
     navbar
   )
   

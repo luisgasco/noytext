@@ -1,3 +1,12 @@
+######################################################################################
+######################################################################################
+###                                                                                ###
+###                              GLOBAL.R                                          ###
+###  This is the GLOBAL function for Noytext app. Author: @LuisGasco               ###
+###                                                                                ###
+######################################################################################
+######################################################################################
+
 # Load libraries to be used in this shiny app
 library(shiny)
 library(shinydashboard) 
@@ -11,11 +20,15 @@ library(tidyr)
 library(stringr)
 library(shinyWidgets)
 library(jsonlite)
+library(stringi)
 # Ensure that the www folder is visible by the app
 addResourcePath("www", "www")
 
 # Create variable with the current working directory
 current_path <- getwd()
+
+#Create global variables
+list_values<-list()
 
 # Invoke and create the functions that will be used in server.R and ui.R -----------
 source(paste0(current_path,"/extra_code/build_survey_questions.R"))

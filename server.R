@@ -1,30 +1,40 @@
-
-# This is the server logic for a Shiny web application.
-# You can find out more about building applications with Shiny here:
-#
-# http://shiny.rstudio.com
-#
+######################################################################################
+######################################################################################
+###                                                                                ###
+###                              SERVER.R                                          ###
+###  This is the server function of the app Noytext. Author: @LuisGasco            ###
+###                                                                                ###
+######################################################################################
+######################################################################################
 
 server <- function(input, output,session) {
-  # Function to create the graphical interface for annotating, as well as the saving in database -------------
+  
+  # Needed functions-------------------------
+  
+  # Function to create the graphical interface for annotating, as well as the saving the data inthe database
   show_annotating_UI <- function(){
+        # Show UI with JS
         shinyjs::show("columna")
         shinyjs::enable("radio")
+        
         #Wait some seconds to enable de radio buttos (because we have to show the text before marking it)
         delay(1,shinyjs::enable("radio"))
         delay(1,shinyjs::disable("siguiente"))
         delay(1,shinyjs::disable("guardar"))
+        
+        # Render the radioButtons
         output$uiRadioButtons <- renderUI({tagList(radioButtons("radio", label = h3("Categories:"),
-                                                                choices = list("Noise complaint" = "r_perc_neg",
-                                                                               "Enjoying noises or sounds" = "r_perc_pos",
-                                                                               "Acoustic noise news or opinions about acoustic noise news" = "ruido_noticias_amb",
-                                                                               "Others" = "ruido_noacustica"), 
+                                                                choiceNames = list(annotation_texts$text[1],annotation_texts$text[2],
+                                                                                   annotation_texts$text[3],annotation_texts$text[4]),
+                                                                choiceValues = list(annotation_texts$id[1],annotation_texts$id[2],
+                                                                                    annotation_texts$id[3],annotation_texts$id[4]),
                                                                 selected = character(0)),
-                                                   radioTooltip(id = "radio", choice = "r_perc_neg", title = "The person is complaining about a noise source, or sound, such as neighbors, traffic, aircrafts...", placement = "right", trigger = "hover"),
-                                                   radioTooltip(id = "radio", choice = "r_perc_pos", title = "The person is making a positive statement about a noise source, or sound, such as his/her own music, birds... ", placement = "right", trigger = "hover"),
-                                                   radioTooltip(id = "radio", choice = "ruido_noticias_amb", title = "The text content is a piece of news about acoustics, an opinion about a piece of new about that topic, or a statement about acoustics that is not a subjective opinion.", placement = "right", trigger = "hover"),
-                                                   radioTooltip(id = "radio", choice = "ruido_noacustica", title = "The content does not fit with other labels", placement = "right", trigger = "hover"))})
-        #Cogemos un tweet aleatorio de los no categorizados aún
+                                                   radioTooltip(id = "radio", choice = annotation_texts$id[1], title = annotation_texts$tooltip_text[1], placement = "right", trigger = "hover"),
+                                                   radioTooltip(id = "radio", choice = annotation_texts$id[2], title = annotation_texts$tooltip_text[2], placement = "right", trigger = "hover"),
+                                                   radioTooltip(id = "radio", choice = annotation_texts$id[3], title = annotation_texts$tooltip_text[3], placement = "right", trigger = "hover"),
+                                                   radioTooltip(id = "radio", choice = annotation_texts$id[4], title = annotation_texts$tooltip_text[4], placement = "right", trigger = "hover"))})
+        
+        # Recover a random text from database
         texto_ann <<- con$aggregate(paste0('[
                                        {
                                        "$project":{
@@ -39,12 +49,8 @@ server <- function(input, output,session) {
                                        {"$sample":{"size":1}}
                                        ]'))
         
-        #Mostramos el tweet
+        # Show the text
         output$texto <- renderUI({
-          # validate(
-          #   need(texto$text, "Please, select the language in which you want to label the texts"
-          #   )
-          # )
           fluidRow(
             tagList(
               tags$ul(class="timeline",
@@ -57,50 +63,67 @@ server <- function(input, output,session) {
             ))
         })
         
+        
         updateRadioButtons(session, "radio", selected = character(0))
         session$sendCustomMessage(type = "resetValue", message = "radio")
         
-        #Esto se puede borrar
-        output$texto_value_radio <-renderText({paste0("Valor radio",input$radio)})
+        # This is just an indicator to test if the app is saving the data correctly in the database
+        # output$texto_value_radio <-renderText({paste0("Valor radio",input$radio)})
   }
   
-  # Function to prepare the query to save the survey data for a user ---------
+  # Function to prepare the query to save the survey data for a user
   prepare_survey_query <- function(survey_questions){
-    # I NEED TO PUT THIS CODE IN A FUNCTION, BUT I HAVE TO LEARN HOW TO PROGRAM SHINY WITH MODULES TO PASS INPUT DATA TO A FUNCTION --------------
+    
     string_ini<-'{"$set": {"survey": {'
+    
     #First, we get the values of inputs:
-    list_values<-list()
     for(i in 1:nrow(survey_questions)){
-      list_values[[i]]<- eval(parse(text=paste0("input$",survey_questions$q_id[i])))
-      # print(i,as.character(list_values[[i]]),sep="--")
+      
+      # If the input is NULL, we add a 0-length character element (to avoid future errors)
+      list_values[[i]]<- as.character(eval(parse(text=paste0("input$",survey_questions$q_id[i]))))
+      
     }
+    
+    # Substitute 0-length elements,empty strings or NA to "Empty")
+    list_values<-lapply(list_values, function(x) if((is.na(x))||(x=="")|(length(x) == 0)){"Empty" }else{x} ) 
+    
     string_med <- list()
     #Now we add those values in the query
     for(i in 1:nrow(survey_questions)){
-      # If the question content is greater than an element (is a list)
-      if ((survey_questions$q_type[i] == "selectInputMultiple" )|
-          (survey_questions$q_type[i] == "checkboxGroupInput")|
-          (survey_questions$q_type[i] == "pickerInput")){
-        string_med[[i]] <- paste0('"',survey_questions$q_number[i],'":',toJSON(list_values[[i]]))
-      }else{
-        string_med[[i]] <- paste0('"',survey_questions$q_number[i],'":"',list_values[[i]],'"')
-      }
       
+      # If the question content is a vector, we need to convert the vector into a JSON object
+      if (length(list_values[[i]])==1){
+        
+        string_med[[i]] <- paste0('"',survey_questions$q_number[i],'":"',list_values[[i]],'"')
+        
+      }else {
+        
+        string_med[[i]] <- paste0('"',survey_questions$q_number[i],'":',toJSON(list_values[[i]]))
+        
+      }
     }
+    
     #Concatenate elements of the list
-    library(stringi)
     string_med_fin<-paste(stri_join_list(string_med, sep = "", collapse = NULL),sep="",collapse=",")
-    final_update_query<<-paste0(string_ini,string_med_fin,'}}}')
+    final_update_query<-paste0(string_ini,string_med_fin,'}}}')
   }
   
-  # Cuando detecta un cambio en esa expresión, se ejecuta todo
+  
+  
+  
+  # Annotating tab logic --------------------------------
+  # If there is a click on "siguiente" button, or in the login_signing button (modal), the annotating UI is shown.
   observeEvent({
     input$siguiente
     input$login_signin
   }, {show_annotating_UI()},ignoreInit = TRUE,ignoreNULL = TRUE)
+  
+  # Activate guardar (save) button when a radiobutton is selected
   observeEvent(input$radio,{
     shinyjs::enable("guardar")
   })
+  
+  # Save the content of radiobutton when guardar button is clicked
   observeEvent(input$guardar,{
     #Asignamos el radio$input a una variable para actualizar despues la base de datos
     shinyjs::enable("siguiente")
@@ -133,6 +156,11 @@ server <- function(input, output,session) {
     }
   })
   
+  
+  
+  
+  
+  # Help tab Logic -------------------------
   # start introjs when button is pressed with custom options and events
   observeEvent( input$tabs,if(input$tabs=="ejecutar_help"){
                                  introjs(session, options = list("nextLabel"="Next",
@@ -140,6 +168,9 @@ server <- function(input, output,session) {
                                                                  "skipLabel"="Skip"))
                                   })
   
+  
+  # Index.html logic------------------------------
+  # This part only works with the index.html buttons
   observeEvent(input$go_label,{
     ## Switch active tab to 'Page 1'
     updateTabsetPanel(session, "tabs",
@@ -151,7 +182,12 @@ server <- function(input, output,session) {
                       selected = "ejecutar_help")
   })
   
-  # Modal window for the survey:
+  
+  
+  
+  
+  # Modal functions----------------------------------
+  # Modal windows for the survey:
   dataModal <- function(failed = FALSE) {
     modalDialog(
       textInput("user_name", "Define your user name",
@@ -176,37 +212,45 @@ server <- function(input, output,session) {
     )
   }
   
-  # Logic functions for survey data ------------------------
-  observeEvent(input$tabs,
-               if((input$tabs == "ejecutar_label")&(survey_needed==TRUE)){
+  
+  # Logic functions for survey data-----------------
+  # When click on annotating tab, show datamodal if survey is configured to be shown. If not, show the annotating UI
+  observeEvent(input$tabs,if((input$tabs == "ejecutar_label")&(survey_needed==TRUE)){
                   showModal(dataModal())
                 }else if((input$tabs == "ejecutar_label")){
                   show_annotating_UI()
                 })
+  # Logical operations when user writes his name on the first datamodal.
   observeEvent(input$login_signin,{
+    
     #CHECK IF THE USER IS ON THE DATABASE
     user_name <- input$user_name
     print(user_name)
     value <- con_user$find(paste0('{"user":"',user_name,'"}')) # Change con byh con_user
+    
     # IF IT ISNT ON THE DABASE WE SHOW HIM THE SURVEY
     if(nrow(value)==0){
-      # We create a document for the new user in the user_collection
+      
+      # We create a document for the new user in the user_collection and we show him the survey
       print("we create the new user in the database")
       con_user$insert(paste0('{"user":"',user_name,'"}'))
       showModal(dataModal2())
+      
     }else{
+      
+      #If user is found on the database we close the modal and show him the annotating interface
       print("user found in database")
       removeModal()
+      
     }
   })
+  
+  # Logical operations when user clicks on submit button in the survey
   observeEvent(input$submit, {
     # WE NEED TO CREATE A FUNCTION TO SAVE THE SURVEY RESULT TO MONGODB (to the account of the user) saveData(formData())
     # We update the user document with the survey results:
-    # Update the user document with survey results first we use function to generate the update query:
-    
+    # Update the user document with survey results but first we use function to generate the update query:
     user_name <- input$user_name
-    
-    #---------------------
     print("Saving survey data")
     con_user$update(query = paste0('{"user":"',user_name,'"}'),
                     update = prepare_survey_query(survey_questions))
@@ -215,4 +259,5 @@ server <- function(input, output,session) {
     removeModal()
   })
 
+  
 }
