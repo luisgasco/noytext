@@ -220,7 +220,7 @@ To configure the graphical interface of Noytext you must modify the .txt files p
 |  `MongoDB_conf.txt`  |    ...your MongoDB connection parameters   |
 |   `Survey_conf.txt`  |            ...your questionaire            |
 
-<details><summary><h4 align="center">GeneralUI_conf.txt<hr></h4></summary>
+<details><summary><b>GeneralUI_conf.txt parameters</b></summary>
 
 Noytext currently has 4 tabs (information, help, label and about). You can hide all of them, except the one used to annotate texts (label).The first element of each line represents the element you are going to modify. This file consists on 6 configuration lines:
 
@@ -282,7 +282,7 @@ Noytext currently has 4 tabs (information, help, label and about). You can hide 
 
 
 
-<details><summary><h4 align="center">HelpTexts_conf.txt<hr></h4></summary>
+<details><summary><b>HelpTexts_conf.txt parameters</b></summary>
 
   This file allow you to change the helpers file from the tab help. You can use most of the html tags in the definition (I did not check all of them). Currently, you only can define the 4 sentences that will be shown in each step of this tab.
 
@@ -299,7 +299,7 @@ Noytext currently has 4 tabs (information, help, label and about). You can hide 
 
 
 
-<details><summary><h4 align="center">MongoDB_conf.txt<hr></h4></summary>
+<details><summary><b>MongoDB_conf.txt parameters</b></summary>
 
    Here you can define your connection URL, database port, name, and collections. If you want to register user data, besides the text collection you will need to create a collection for this purpose (it was created in the installation guide). The file configures a localhost URL and the port 27017 by default, this is the standard configuration required to access MongoDB from the app in an Ubuntu instance. 
   
@@ -319,9 +319,11 @@ Noytext currently has 4 tabs (information, help, label and about). You can hide 
 </details>
 
 
-<details><summary><h4 align="center">Survey_conf.txt<hr></h4></summary>
+<details><summary><b>Survey_conf.txt parameters</b></summary>
+  
   
 Under construction
+
 
 </details>
 
