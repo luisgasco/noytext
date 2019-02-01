@@ -27,8 +27,8 @@
 </p>
 
 ## To do
-- [] Create modal to sign up - login
-- [] Login with password. Until now the login was only working with the user name.
+- [ ] Create modal to sign up - login
+- [ ] Login with password. Until now the login was only working with the user name.
 
 
 ## Key Features
