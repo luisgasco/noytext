@@ -57,7 +57,7 @@ create_question <- function(question){
 }
 
 
-#' Build an html text that will be the body of the survey
+#' Build an html text that will be the body of the survey s
 #' 
 #' \code{build_survey}
 #' 
