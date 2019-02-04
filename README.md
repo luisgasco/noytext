@@ -32,6 +32,7 @@
 - [x] Rewrite comments of the text
 - [x] Write a .sh file to easily install program on Ubuntu server
 
+=======
 ## Key Features
 
 * Fully customizable UI - Adapt Noytext to your needs
