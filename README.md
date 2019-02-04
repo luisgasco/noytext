@@ -209,6 +209,16 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 </details>
 
 
+#### This option is not completely debugged, it could fail:
+You can use the file noytext_installation.sh present in /noytext/testing_data to install in your server. This *sh* file will automatically replicate steps from 2<sup>nd</sup> to 6<sup>th</sup>:
+ ```bash
+     wget https://raw.githubusercontent.com/luisgasco/noytext/master/testing_data/noytext_install.sh
+     chmod 777 noytext_install.sh
+     sudo ./noytext_install.sh
+ ```
+If you have problems using this file, it could be related to problems installing R. Try to manually install R using the code in the second step, and re-execute ```sudo ./noytext_install.sh ```. Be attentive to the dialogs that will appear while the app is installing.
+
+
 ## Configuration
 To configure the graphical interface of Noytext you must modify the .txt files present in the path *noytext/config_files/*. These files use the ":" symbol as a separator, so you cannot use that symbol in your texts. On the other hand, you should not put quotation marks in these documents because it could cause problems when reading the lines.
 
