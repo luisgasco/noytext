@@ -476,3 +476,24 @@ dd.clear { float: none; margin: 0; height: 15px; }
 .tab-content.active{
     display: block; 
 }
+
+
+#login_btn_nav {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+  color: white;
+  background-color: darkgreen;
+  font-size: medium;
+}
+
+#logout {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+  color: white;
+  background-color: darkred;
+  font-size: medium;
+}

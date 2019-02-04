@@ -67,6 +67,18 @@ Version: 1.0.0
 Hash: c13adea5906fbe2becfcb5f843b26749
 Requires: R6, ggplot2, htmltools, jsonlite, lazyeval, shiny
 
+Package: curl
+Source: CRAN
+Version: 3.2
+Hash: 82a7cf5bb702ef52329b6d23ea6132a7
+
+Package: devtools
+Source: CRAN
+Version: 1.13.5
+Hash: 80061b2ad6853fd3665bf883123a1b1a
+Requires: digest, git2r, httr, jsonlite, memoise, rstudioapi, whisker,
+    withr
+
 Package: digest
 Source: CRAN
 Version: 0.6.18
@@ -90,6 +102,11 @@ Version: 3.1.0
 Hash: ef541b05dda10b209d509b5bbaf46ea3
 Requires: digest, gtable, lazyeval, plyr, reshape2, rlang, scales,
     tibble, viridisLite, withr
+
+Package: git2r
+Source: CRAN
+Version: 0.21.0
+Hash: e197855dcb681d78b4d6f0a90d80f845
 
 Package: glue
 Source: CRAN
@@ -124,6 +141,12 @@ Source: CRAN
 Version: 1.4.5.1
 Hash: f36bbbc8cdff76f9b93d309da3b7664d
 Requires: BH, Rcpp, later, promises
+
+Package: httr
+Source: CRAN
+Version: 1.3.1
+Hash: 2d32e01e53d532c812052e27a1021441
+Requires: R6, curl, jsonlite, mime, openssl
 
 Package: jsonlite
 Source: CRAN
@@ -164,6 +187,12 @@ Version: 0.7.7
 Hash: fea2343a1119d61b0cc5c0a950d103a3
 Requires: mime
 
+Package: memoise
+Source: CRAN
+Version: 1.1.0
+Hash: 410fcd334bc626db100237cc1370f2e9
+Requires: digest
+
 Package: mime
 Source: CRAN
 Version: 0.5
@@ -186,6 +215,11 @@ Source: CRAN
 Version: 0.5.0
 Hash: 38d0efee9bb99bef143bde41c4ce715c
 Requires: colorspace
+
+Package: openssl
+Source: CRAN
+Version: 1.0.1
+Hash: e04b8ed7b05c1f75aa81c65a086b1d0c
 
 Package: packrat
 Source: CRAN
@@ -254,6 +288,11 @@ Source: CRAN
 Version: 0.3.1
 Hash: 1176a91e0c23d4fc8f48bc5704a6f826
 
+Package: rstudioapi
+Source: CRAN
+Version: 0.7
+Hash: e2ebaff8160aff3e6b32e6e78a693c2d
+
 Package: scales
 Source: CRAN
 Version: 1.0.0
@@ -279,6 +318,21 @@ Version: 0.4.2
 Hash: 41aa8c07ede896480db5b0148f9d89c1
 Requires: htmltools, jsonlite, shiny
 
+Package: shinyauthr
+Source: github
+Version: 0.0.99
+Hash: e126f83f6c214b5a58daf8f8d82b72c9
+Requires: digest, dplyr, rlang, shiny, shinyjs
+GithubRepo: shinyauthr
+GithubUsername: paulc91
+GithubRef: master
+GithubSha1: 40ede50e1df0d46fb8afae4e922b03b6ce8589f6
+RemoteHost: https://api.github.com
+RemoteRepo: shinyauthr
+RemoteUsername: paulc91
+RemoteRef: master
+RemoteSha: 40ede50e1df0d46fb8afae4e922b03b6ce8589f6
+
 Package: shinydashboard
 Source: CRAN
 Version: 0.5.3
@@ -287,9 +341,9 @@ Requires: htmltools, shiny
 
 Package: shinyjs
 Source: CRAN
-Version: 0.7
-Hash: e4833b2ba2d8c8773d7b1200699bb434
-Requires: digest, htmltools, miniUI, shiny
+Version: 1.0
+Hash: ea95f751025e50227a96100be35e970b
+Requires: digest, htmltools, jsonlite, shiny
 
 Package: shinythemes
 Source: CRAN
@@ -352,6 +406,11 @@ Package: viridisLite
 Source: CRAN
 Version: 0.3.0
 Hash: 78bb072c4f9e729a283d4c40ec93f9c6
+
+Package: whisker
+Source: CRAN
+Version: 0.3-2
+Hash: 803d662762e532705c2c066a82d066e7
 
 Package: withr
 Source: CRAN
