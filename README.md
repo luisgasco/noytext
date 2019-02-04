@@ -26,11 +26,6 @@
   <a href="#license">License</a>
 </p>
 
-## To do
-- [ ] Create modal to sign up - login
-- [ ] Login with password. Until now the login was only working with the user name.
-
-
 ## Key Features
 
 * Fully customizable UI - Adapt Noytext to your needs
