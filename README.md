@@ -26,9 +26,9 @@
   <a href="#license">License</a>
 </p>
 
-## To do
-- [ ] Create modal to sign up - login
-- [ ] Login with password. Until now the login was only working with the user name.
+## To do for v0.2.0
+- [x] Create modal to sign up - login
+- [x] Login with password. Until now the login was only working with the user name.
 
 
 ## Key Features
