@@ -7,8 +7,9 @@
 <h4 align="center">A web-based platform for annotating short-text documents to be used in applied text-mining based research.</h4>
 
 <p align="center">
+  <img src=https://img.shields.io/github/release/luisgasco/noytext.svg?style=flat"">
   <a href="https://saythanks.io/to/luisgasco">
-      <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
+      <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg"">
   </a>
   <a href="https://paypal.me/luisgasco?locale.x=es_ES">
     <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
