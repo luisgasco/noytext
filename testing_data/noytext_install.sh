@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Add noytext user
-sudo adduser noytext
-sudo gpasswd -a noytext sudo
-su - noytext
-
 # R installation
 sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
 gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
