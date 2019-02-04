@@ -26,13 +26,7 @@
   <a href="#license">License</a>
 </p>
 
-## To do for v0.2.0
-- [x] Create modal to sign up - login
-- [x] Login with password. Until now the login was only working with the user name.
-- [x] Rewrite comments of the text
-- [x] Write a .sh file to easily install program on Ubuntu server
 
-=======
 ## Key Features
 
 * Fully customizable UI - Adapt Noytext to your needs
