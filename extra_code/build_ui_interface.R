@@ -166,8 +166,7 @@ gen_navbar_elem <- function(gen_conf){
              label_content()
     ),
     tabPanel(gen_conf[5,]$text_title,
-             includeHTML(gen_conf[5,]$file))
-  )
+             includeHTML(gen_conf[5,]$file)))
   # Now we change the class of <ul> elements for not being shown to user # ADD A CLAS STYLE AND ADD THE CSS CONTENT MANUALLY
   navbar[[3]][[1]][[3]][[1]][[3]][[2]][[3]][[1]][[1]]$children[[1]]$attribs$style <- hide_show_class(gen_conf[2,]$logical)
   navbar[[3]][[1]][[3]][[1]][[3]][[2]][[3]][[1]][[2]]$children[[1]]$attribs$style  <- hide_show_class(gen_conf[3,]$logical)
@@ -177,7 +176,9 @@ gen_navbar_elem <- function(gen_conf){
     tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")),
     tags$head(tags$link(rel = "icon", type = "image/png", href = "www/img/logo_circle.png"),
               tags$title("Noytext")),
-    navbar
+    navbar,
+    HTML(paste("<script>var parent = document.getElementsByClassName('navbar-nav');
+               parent[0].insertAdjacentHTML( 'afterend', '<ul class=\"nav navbar-nav navbar-right\"><li class=\"disabled\"><strong>",uiOutput('App_Panel'),"</strong></ul>' );</script>"))
   )
   
   return(output_w_style)
