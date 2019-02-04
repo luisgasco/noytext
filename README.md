@@ -209,7 +209,7 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
 </details>
 
 
-#### This option is not completely debugged, it could fail:
+#### The following option is not completely debugged, it could fail:
 You can use the file noytext_installation.sh present in /noytext/testing_data to install in your server. This *sh* file will automatically replicate steps from 2<sup>nd</sup> to 6<sup>th</sup>:
  ```bash
      wget https://raw.githubusercontent.com/luisgasco/noytext/master/testing_data/noytext_install.sh
