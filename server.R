@@ -10,7 +10,6 @@
 server <- function(input, output,session) {
   
   # Needed functions-------------------------
-  
   # Function to create the graphical interface for annotating, as well as the saving the data inthe database
   show_annotating_UI <- function(){
         # Show UI with JS
@@ -130,11 +129,13 @@ server <- function(input, output,session) {
    button_logout()
 
    
+   
+   
+   
   # Annotating tab logic --------------------------------
-  # If there is a click on "siguiente" button, or in the login_signing button (modal), the annotating UI is shown.
+  # If there is a click on "siguiente" button the annotating UI is shown.
   observeEvent({
     input$siguiente
-    # correct_login()
   }, {show_annotating_UI()},ignoreInit = TRUE,ignoreNULL = TRUE)
   
   # Activate guardar (save) button when a radiobutton is selected
@@ -203,23 +204,27 @@ server <- function(input, output,session) {
   
   
   
+  
+  
   # Observe event of logout button on nav. If correct_login is FALSE user is out, so nothing happens. If not, reset reactive values, user_name and hide content of label tab--------
   observeEvent(input$logout,{
     if(correct_login()){
       correct_login(FALSE)
-      # first_time_shown_label(TRUE)
-      # touch_label_tab(FALSE)
       user_name <<- NULL
       shinyjs::hide("columna")
       print("reactive_works")
     }else{}
     
   },ignoreInit = TRUE,ignoreNULL = TRUE)
-  # Observe event of login_btn_nav. If correct_login is TRUE user is inside, so nothing happes. If not, show login modasl
+  
+  
+  # Observe event of login_btn_nav. If correct_login is TRUE user is inside, so nothing happes. If not, show login modal to sign in
   observeEvent({
     input$login_btn_nav},if(correct_login()){}else{
       showModal(login_modal())
     },ignoreInit = TRUE,ignoreNULL = TRUE)
+  
+  
   
   
   
@@ -275,7 +280,7 @@ server <- function(input, output,session) {
   
   
   # Logic functions for survey data and login-----------------
-  # Change value of reacttive value touch_label_tab:
+  # Change value of reacttive value touch_label_tab. This is an easy way to check that user clicked on the labeling tab
   observeEvent(input$tabs,{
     if(input$tabs == "ejecutar_label"){
       touch_label_tab(TRUE)
@@ -284,13 +289,13 @@ server <- function(input, output,session) {
     }
   })
 
-  # If user touch label tab and he is not logged, it will be shown the login page
+  # If user touch label tab and he is not logged, he will be shown the login page
   # But if survey_needed==FALSE then show directy the column
   observeEvent({touch_label_tab()},
                if((correct_login()==TRUE) | (survey_needed==FALSE)){show_annotating_UI()}else{showModal(login_modal())},
                ignoreInit = TRUE,ignoreNULL = TRUE)
   
-  # When click on annotating tab, show datamodal if survey is configured to be shown. If not, show the annotating UI
+  # When click on label tab, show datamodal if survey is configured to be shown. If not, show the annotating UI
   observeEvent({correct_login() },{if(((!correct_login()))&(survey_needed==TRUE)){
                   showModal(login_modal())
                   touch_label_tab(FALSE)
@@ -298,6 +303,10 @@ server <- function(input, output,session) {
                   show_annotating_UI()
                 }},ignoreInit = TRUE,ignoreNULL = TRUE)
   
+  
+  
+  
+  # LOGIN - CREATE USER EVENTS ---------------------
   # Show the modal popup to create an account:
   observeEvent(input$create_account,{
     removeModal()
