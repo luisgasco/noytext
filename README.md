@@ -9,6 +9,7 @@
 <p align="center">
   
   <img src="https://img.shields.io/github/release/luisgasco/noytext.svg?style=flat">
+  <a href="https://zenodo.org/badge/latestdoi/167003856"><img src="https://zenodo.org/badge/167003856.svg" alt="DOI"></a>
   <a href="https://saythanks.io/to/luisgasco">
       <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg"">
   </a>
