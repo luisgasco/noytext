@@ -16,6 +16,7 @@ NumberQuestions:10
 
 # Define the questions
 Q1:textInput:surv_textInput:Example textInput :Help text
+Q2:onlyText:text_info1:This is just an example text.
 Q2:checkboxInput:surv_checkboxInpupt:Example checkboxInput:FALSE
 Q3:sliderInput:surv_sliderInput:Example sliderInput:0;25;4
 Q4:selectInput:surv_selectInput:Example selectInput:Windows;Mac;Linux

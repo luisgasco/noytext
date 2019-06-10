@@ -20,7 +20,9 @@
 #' 
 #' 
 create_question <- function(question){
-  if(question$q_type=="textInput"){
+  if(question$q_type=="onlyText"){
+    out <- question$q_text
+  }else if(question$q_type=="textInput"){
     out <- textInput(question$q_id, question$q_text, question$q_aditional,width = "100%")
   }else if(question$q_type=="checkboxInput"){
     out<-checkboxInput(question$q_id, question$q_text, as.logical(question$q_aditional),width = "100%")
