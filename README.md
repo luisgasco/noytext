@@ -7,8 +7,11 @@
 <h4 align="center">A web-based platform for annotating short-text documents to be used in applied text-mining based research.</h4>
 
 <p align="center">
+  
+  <img src="https://img.shields.io/github/release/luisgasco/noytext.svg?style=flat">
+  <a href="https://zenodo.org/badge/latestdoi/167003856"><img src="https://zenodo.org/badge/167003856.svg" alt="DOI"></a>
   <a href="https://saythanks.io/to/luisgasco">
-      <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
+      <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg"">
   </a>
   <a href="https://paypal.me/luisgasco?locale.x=es_ES">
     <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
@@ -207,6 +210,16 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
   **I repeat that is very important to have the column of the texts named as "text", otherwise the application will not work.**
     
 </details>
+
+
+#### The following option is not completely debugged, it could fail:
+You can use the file noytext_installation.sh present in /noytext/testing_data to install in your server. This *sh* file will automatically replicate steps from 2<sup>nd</sup> to 6<sup>th</sup>:
+ ```bash
+     wget https://raw.githubusercontent.com/luisgasco/noytext/master/testing_data/noytext_install.sh
+     chmod 777 noytext_install.sh
+     sudo ./noytext_install.sh
+ ```
+If you have problems using this file, it could be related to problems installing R. Try to manually install R using the code in the second step, and re-execute ```sudo ./noytext_install.sh ```. Be attentive to the dialogs that will appear while the app is installing.
 
 
 ## Configuration
