@@ -150,6 +150,7 @@ hide_show_class <- function(value){
 gen_navbar_elem <- function(gen_conf){
   navbar<- navbarPage(
     id="tabs",
+    collapsible=TRUE,
     theme = shinytheme(gen_conf[6,]$text_title),  # <--- To use a theme, uncomment this
     title=div(a(href="https://luisgasco.github.io/noytext_web/",
                 target="_blank",
@@ -168,10 +169,13 @@ gen_navbar_elem <- function(gen_conf){
     tabPanel(gen_conf[5,]$text_title,
              includeHTML(gen_conf[5,]$file)))
   # Now we change the class of <ul> elements for not being shown to user # ADD A CLAS STYLE AND ADD THE CSS CONTENT MANUALLY
-  navbar[[3]][[1]][[3]][[1]][[3]][[2]][[3]][[1]][[1]]$children[[1]]$attribs$style <- hide_show_class(gen_conf[2,]$logical)
-  navbar[[3]][[1]][[3]][[1]][[3]][[2]][[3]][[1]][[2]]$children[[1]]$attribs$style  <- hide_show_class(gen_conf[3,]$logical)
-  # navbar[[3]][[1]][[3]][[1]][[3]][[2]][[3]][[1]][[3]]$attribs$class 
-  navbar[[3]][[1]][[3]][[1]][[3]][[2]][[3]][[1]][[4]]$children[[1]]$attribs$style <-hide_show_class(gen_conf[5,]$logical)
+  navbar[[3]][[1]][[3]][[1]][[3]][[2]][[3]][[1]][[3]][[1]][[1]]$children[[1]]$attribs$style <- hide_show_class(gen_conf[2,]$logical)
+  navbar[[3]][[1]][[3]][[1]][[3]][[2]][[3]][[1]][[3]][[1]][[2]]$children[[1]]$attribs$style  <- hide_show_class(gen_conf[3,]$logical)
+  navbar[[3]][[1]][[3]][[1]][[3]][[2]][[3]][[1]][[3]][[1]][[4]]$children[[1]]$attribs$style <-hide_show_class(gen_conf[5,]$logical)
+  
+  # navbar[[3]][[1]][[3]][[1]][[3]][[2]][[3]][[1]][[1]]$children[[1]]$attribs$style <- hide_show_class(gen_conf[2,]$logical)
+  # navbar[[3]][[1]][[3]][[1]][[3]][[2]][[3]][[1]][[2]]$children[[1]]$attribs$style  <- hide_show_class(gen_conf[3,]$logical)
+  # navbar[[3]][[1]][[3]][[1]][[3]][[2]][[3]][[1]][[4]]$children[[1]]$attribs$style <-hide_show_class(gen_conf[5,]$logical)
   output_w_style <- tagList(
     tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")),
     tags$head(tags$link(rel = "icon", type = "image/png", href = "www/img/logo_circle.png"),

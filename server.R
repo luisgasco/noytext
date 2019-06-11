@@ -22,16 +22,33 @@ server <- function(input, output,session) {
         delay(1,shinyjs::disable("guardar"))
         
         # Render the radioButtons
-        output$uiRadioButtons <- renderUI({tagList(radioButtons("radio", label = h3("Categories:"),
-                                                                choiceNames = list(annotation_texts$text[1],annotation_texts$text[2],
-                                                                                   annotation_texts$text[3],annotation_texts$text[4]),
-                                                                choiceValues = list(annotation_texts$id[1],annotation_texts$id[2],
-                                                                                    annotation_texts$id[3],annotation_texts$id[4]),
-                                                                selected = character(0)),
-                                                   radioTooltip(id = "radio", choice = annotation_texts$id[1], title = annotation_texts$tooltip_text[1], placement = "right", trigger = "hover"),
-                                                   radioTooltip(id = "radio", choice = annotation_texts$id[2], title = annotation_texts$tooltip_text[2], placement = "right", trigger = "hover"),
-                                                   radioTooltip(id = "radio", choice = annotation_texts$id[3], title = annotation_texts$tooltip_text[3], placement = "right", trigger = "hover"),
-                                                   radioTooltip(id = "radio", choice = annotation_texts$id[4], title = annotation_texts$tooltip_text[4], placement = "right", trigger = "hover"))})
+        output$uiRadioButtons <-renderUI({
+          # If the user is on mobile phone, tooltips are not showed
+          if(input$isMobile){
+            tagList(radioButtons("radio", label = h3("Categories:"),
+                                 choiceNames = list(annotation_texts$text[1],annotation_texts$text[2],
+                                                    annotation_texts$text[3],annotation_texts$text[4]),
+                                 choiceValues = list(annotation_texts$id[1],annotation_texts$id[2],
+                                                     annotation_texts$id[3],annotation_texts$id[4]),
+                                 selected = character(0)))
+          }else {
+            tagList(radioButtons("radio", label = h3("Categories:"),
+                                 choiceNames = list(annotation_texts$text[1],annotation_texts$text[2],
+                                                    annotation_texts$text[3],annotation_texts$text[4]),
+                                 choiceValues = list(annotation_texts$id[1],annotation_texts$id[2],
+                                                     annotation_texts$id[3],annotation_texts$id[4]),
+                                 selected = character(0)),
+                    radioTooltip(id = "radio", choice = annotation_texts$id[1], title = annotation_texts$tooltip_text[1], placement = "right", trigger = "hover"),
+                    radioTooltip(id = "radio", choice = annotation_texts$id[2], title = annotation_texts$tooltip_text[2], placement = "right", trigger = "hover"),
+                    radioTooltip(id = "radio", choice = annotation_texts$id[3], title = annotation_texts$tooltip_text[3], placement = "right", trigger = "hover"),
+                    radioTooltip(id = "radio", choice = annotation_texts$id[4], title = annotation_texts$tooltip_text[4], placement = "right", trigger = "hover"))
+          }
+          
+        })
+        # is on mobile? This is to check that MobileDetector is Working (the input$isMobile is on UI.R)
+        # output$isItMobile <- renderText({
+        #   ifelse(input$isMobile, "You are on a mobile device", "You are not on a mobile device")
+        # })
         
         # Recover a random text from database
         texto_ann <<- con$aggregate(paste0('[
@@ -213,14 +230,21 @@ server <- function(input, output,session) {
       user_name <<- NULL
       shinyjs::hide("columna")
       print("reactive_works")
-    }else{}
+      # print(input$isMobile) # To see on console if mobileDetector is working
+      # enable("login_btn_nav")
+    }else{
+      # disable("logout")
+    }
     
   },ignoreInit = TRUE,ignoreNULL = TRUE)
   
-  
+  # shinyjs::hidden(actionButton("login_btn_nav","LOGIN")),
+  # shinyjs::hidden(actionButton("logout","LOGOUT"))
   # Observe event of login_btn_nav. If correct_login is TRUE user is inside, so nothing happes. If not, show login modal to sign in
   observeEvent({
-    input$login_btn_nav},if(correct_login()){}else{
+    input$login_btn_nav},if(correct_login()){
+
+      }else{
       showModal(login_modal())
     },ignoreInit = TRUE,ignoreNULL = TRUE)
   
