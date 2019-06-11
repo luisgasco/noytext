@@ -174,7 +174,7 @@ Here you have the steps to run the app in your cloud server (running Ubuntu 16.0
       # Activate packrat (library to manage R libraries)
       packrat::on() 
       # Install libraries on the noytext private library
-      packrat::restore()
+      packrat::restore(overwrite.dirty = TRUE)
       # Init packrat:
       packrat::init()
       ```
