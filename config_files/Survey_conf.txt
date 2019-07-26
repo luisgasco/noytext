@@ -9,7 +9,7 @@
 # Please do NOT use quotation marks when writing the name of your tabs/files/TRUE-FALSE constants.
 
 # Do you need to get information about your annotators?(A survey will be shown to them, after a login page) (If yes, write TRUE. If not, write FALSE)
-SurveyNeeded:TRUE
+SurveyNeeded:FALSE
 
 # How many questions do you want to ask your annotators?
 NumberQuestions:10

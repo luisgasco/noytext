@@ -50,12 +50,18 @@ survey_mandatory <-strsplit(survey_text[c(2+survey_num_questions+1),"q_type"],";
 
 # Radiobuttons for annotation. In the future probably on a text file--------------------
 
-annotation_texts <- data.frame(id = c("r_perc_neg","r_perc_pos","ruido_noticias_amb","ruido_noacustica"),
-                               text = c("Noise complaint","Enjoying noises or sounds","Acoustic noise news or opinions about acoustic noise news","Others"),
-                               tooltip_text = c("The person is complaining about a noise source, or sound, such as neighbors, traffic, aircrafts...",
-                                                "The person is making a positive statement about a noise source, or sound, such as his/her own music, birds... ",
-                                                "The text content is a piece of news about acoustics, an opinion about a piece of new about that topic, or a statement about acoustics that is not a subjective opinion.",
-                                                "The content does not fit with other labels"),
+annotation_texts <- data.frame(id = c("indoor_pos","indoor_neg","outdoor_pos","outdoor_neg",
+                                      "no_opinion","no_idea"),
+                               text = c("Positive opinion about indoor sounds",
+                                        "Negative opinion about indoor sounds",
+                                        "Positive opinion about outdoor sounds",
+                                        "Negative opinion about outdoor sounds",
+                                        "No opinion about sounds detected",
+                                        "I don't know what to select"),
+                               tooltip_text = c(" ",
+                                                " ",
+                                                " ",
+                                                " "," "," "),
                                stringsAsFactors = FALSE)
 
 

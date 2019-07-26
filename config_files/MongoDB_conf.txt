@@ -16,10 +16,10 @@ ConnectionURL:localhost
 ConnectionPORT:27017
 
 # Your database name
-DatabaseNAME:db_name
+DatabaseNAME:yelp_to_annotate
 
 # Your texts collection name
-CollectionTextNAME:text_collection
+CollectionTextNAME:4words_filter_is_noise
 
 # Your user collection name
 CollectionUsersNAME:user_collection

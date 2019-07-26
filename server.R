@@ -45,22 +45,28 @@ server <- function(input, output,session) {
         output$uiRadioButtons <-renderUI({
           # If the user is on mobile phone, tooltips are not showed
           if(input$isMobile){
-            tagList(radioButtons("radio", label = h3("Categories:"),
+            tagList(radioButtons("radio", label = h3("Categories:"),width="500px",
                                  choiceNames = list(annotation_texts$text[1],annotation_texts$text[2],
-                                                    annotation_texts$text[3],annotation_texts$text[4]),
+                                                    annotation_texts$text[3],annotation_texts$text[4],
+                                                    annotation_texts$text[5],annotation_texts$text[6]),
                                  choiceValues = list(annotation_texts$id[1],annotation_texts$id[2],
-                                                     annotation_texts$id[3],annotation_texts$id[4]),
+                                                     annotation_texts$id[3],annotation_texts$id[4],
+                                                     annotation_texts$id[5],annotation_texts$id[6]),
                                  selected = character(0)))
           }else {
-            tagList(radioButtons("radio", label = h3("Categories:"),
+            tagList(radioButtons("radio", label = h3("Categories:"),width="500px",
                                  choiceNames = list(annotation_texts$text[1],annotation_texts$text[2],
-                                                    annotation_texts$text[3],annotation_texts$text[4]),
+                                                    annotation_texts$text[3],annotation_texts$text[4],
+                                                    annotation_texts$text[5],annotation_texts$text[6]),
                                  choiceValues = list(annotation_texts$id[1],annotation_texts$id[2],
-                                                     annotation_texts$id[3],annotation_texts$id[4]),
+                                                     annotation_texts$id[3],annotation_texts$id[4],
+                                                     annotation_texts$id[5],annotation_texts$id[6]),
                                  selected = character(0)),
                     radioTooltip(id = "radio", choice = annotation_texts$id[1], title = annotation_texts$tooltip_text[1], placement = "right", trigger = "hover"),
                     radioTooltip(id = "radio", choice = annotation_texts$id[2], title = annotation_texts$tooltip_text[2], placement = "right", trigger = "hover"),
                     radioTooltip(id = "radio", choice = annotation_texts$id[3], title = annotation_texts$tooltip_text[3], placement = "right", trigger = "hover"),
+                    radioTooltip(id = "radio", choice = annotation_texts$id[4], title = annotation_texts$tooltip_text[4], placement = "right", trigger = "hover"),
+                    radioTooltip(id = "radio", choice = annotation_texts$id[4], title = annotation_texts$tooltip_text[4], placement = "right", trigger = "hover"),
                     radioTooltip(id = "radio", choice = annotation_texts$id[4], title = annotation_texts$tooltip_text[4], placement = "right", trigger = "hover"))
           }
           
@@ -72,19 +78,32 @@ server <- function(input, output,session) {
         
         # Recover a random text from database
         texto_ann <<- con$aggregate(paste0('[
-                                       {
+                                           {
                                        "$project":{
-                                       "text":1,
-                                       "total_annotations":{
-                                       "$size":{"$ifNull": ["$text_annotations",[]]}
-                                       },
-                                       "text_annotation":1
-                                       }
-                                       },
-                                       {"$match":{"total_annotations":{"$lt":',num_annotations,'}}},
-                                       {"$sample":{"size":1}}
+                                           "tokens":1,
+                                           "sentences":1
+                                            }
+                                            },
+                                           {"$sample":{"size":1}}
                                        ]'))
-        
+        is_noise <- c()
+        texto <- c()
+        for(i in (1:(ncol(texto_ann$sentences)))) {
+          is_noise[i] <- as.numeric(texto_ann$sentences[,i][,4])# Take is_noise
+          texto[i] <- texto_ann$sentences[,i][,1]
+        }
+        sent_df <- data.frame(is_noise=as.numeric(is_noise),texto,stringsAsFactors = FALSE)
+        # Si sent_df$is_noise es 0, descartamos tweet y cargamos otro
+        suma<-sum(sent_df$is_noise)
+        # Si sent_df$is_noise es != 0, cargamos el texto, poniendo en negrita el texto que es is_noise
+        texto <- ""
+        for(i in (1:(nrow(sent_df)))){
+          if(sent_df[i,]$is_noise ==1){
+            texto<-paste0(texto,paste("<mark><b>",sent_df[i,]$texto,"</b></mark>"),sep=" ")
+          }else{
+            texto<-paste0(texto,sent_df[i,]$texto,sep=" ")
+          }
+        }
         # Show the text
         output$texto <- renderUI({
           fluidRow(
@@ -93,7 +112,7 @@ server <- function(input, output,session) {
                       tags$li(
                         div(class="bubble-container",
                             div(class="bubble",
-                                texto_ann$text
+                                HTML(texto)
                             ),
                             div(class="over-bubble"))))
             ))
