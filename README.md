@@ -378,11 +378,14 @@ To cite Noytext please use the next reference:
  - [**L. Gasco**, C. Clavel, C. Asensio and G. de Arcas “Beyond sound level monitoring: Exploitation of social media to gather citizens subjective response to noise”,  Science of the Total Environment. 658, p  69-79. March 2019. ](https://doi.org/10.1016/j.scitotenv.2018.12.071)
 
 ## About
-I developed this tool while I was a PhD student at [Instrumentation and Applied Acoustics Research Group (I2A2 Group)](http://www.i2a2.upm.es/) of [Universidad Politécnica de Madrid](http://www.upm.es/). Part of this code was developed while I was doing a research stay at [Télecom Paristech](https://www.telecom-paristech.fr/).
+We developed this tool while I was a PhD student at [Instrumentation and Applied Acoustics Research Group (I2A2 Group)](http://www.i2a2.upm.es/) of [Universidad Politécnica de Madrid](http://www.upm.es/). Part of this code was developed while I was doing a research stay at [Télecom Paristech](https://www.telecom-paristech.fr/).
 
 
 <div align="center"><a href="http://www.i2a2.upm.es/" target="_blank"> <img src="https://github.com/luisgasco/noytext/blob/master/www/img/logo_notext.jpg" alt="I2A2"	width="auto" height="100" align="middle" /></a> <a href="http://www.upm.es/" target="_blank"><img src="https://github.com/luisgasco/noytext/blob/master/www/img/logo2.jpg" alt="UPM"	width="auto" height="100" align="middle" /></a> <a href="https://www.telecom-paristech.fr/" target="_blank"> <img src="https://github.com/luisgasco/noytext/blob/master/www/img/logo_telecom.png" alt="TELECOM"	width="auto" height="100" align="middle" /></a> </div>
 
+## Authors: 
+Luis Gascó, César Asensio, Guillermo de Arcas (Universidad Politécnica de Madrid)
+Chloé Clavel (Télecom ParisTech)
 
 ## License
 
