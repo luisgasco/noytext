@@ -383,8 +383,9 @@ We developed this tool while I was a PhD student at [Instrumentation and Applied
 
 <div align="center"><a href="http://www.i2a2.upm.es/" target="_blank"> <img src="https://github.com/luisgasco/noytext/blob/master/www/img/logo_notext.jpg" alt="I2A2"	width="auto" height="100" align="middle" /></a> <a href="http://www.upm.es/" target="_blank"><img src="https://github.com/luisgasco/noytext/blob/master/www/img/logo2.jpg" alt="UPM"	width="auto" height="100" align="middle" /></a> <a href="https://www.telecom-paristech.fr/" target="_blank"> <img src="https://github.com/luisgasco/noytext/blob/master/www/img/logo_telecom.png" alt="TELECOM"	width="auto" height="100" align="middle" /></a> </div>
 
-## Authors: 
+## Authors 
 Luis Gascó, César Asensio, Guillermo de Arcas (Universidad Politécnica de Madrid)
+
 Chloé Clavel (Télecom ParisTech)
 
 ## License
