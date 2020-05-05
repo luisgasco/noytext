@@ -395,7 +395,7 @@ AGPL-3.0
 
 ## You may also like...
 
-- [Ropensky](https://github.com/luisgasco/Ropensky) - R library to get data from OpenSky Network API.
+- [openskyr](https://github.com/luisgasco/openskyr) - R library to get data from OpenSky Network API.
 
 ---
 
